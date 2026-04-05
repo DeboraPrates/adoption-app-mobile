@@ -1,0 +1,94 @@
+ion-content {
+    --background: var(--bg-color);
+}
+
+#user {
+    display: flex;
+    justify-self: self-start;
+    font-size: 5rem;
+    margin-left: 1rem;
+    color: #dff8ff;
+}
+
+#settings {
+    display: flex;
+    justify-self: self-end;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    color: #dff8ff;
+}
+
+.home-page {
+    background-color: #ffff;
+    color: rgb(0, 0, 0);
+    font-family: 'League Spartan';
+    justify-self: center;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    margin: 1rem 1rem 2rem 1rem;
+    width: 90%;
+    border-radius: 1rem;
+}
+
+.home-page h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#home-header h2 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#home-header span {
+    font-size: 2rem;
+}
+
+#ongs {
+    color: #E36414;
+}
+
+#veterinarias {
+    color: #5F0F40;
+}
+
+#instituicoes {
+    color: #9A031E;
+}
+
+.quick-f-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    justify-content: center;
+}
+
+.quick-f-wrapper p {
+    margin-inline: 0.5rem;
+}
+
+.quick-f-wrapper ion-icon {
+    font-size: 2rem;
+    display: block;
+}
+
+#report, #register {
+    padding: 1rem 2rem;
+    justify-items: center;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-size: 1rem;
+}
+
+#report, #register p {
+    text-align: center;
+    font-size: 1rem;
+}
+
+#report {
+    background-color: #FF0000;
+}
+
+#register {
+    background-color: #3BB1D0;
+}

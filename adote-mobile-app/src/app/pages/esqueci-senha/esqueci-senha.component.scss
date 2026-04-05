@@ -1,0 +1,89 @@
+ion-content {
+    --padding-start: 0;
+    --padding-end: 0;
+    --background: var(--bg-color);
+}
+
+ion-content::part(scroll) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.cdg-wrapper {
+    margin-top: auto;
+}
+
+.titulo, .titulo2 {
+    margin-left: 1rem;
+    font-family: 'League Spartan';
+}
+
+.titulo {
+    color: var(--yellow);
+    font-size: xx-large;
+}
+
+.titulo2 {
+    margin-top: -1rem;
+    font-size: x-large;
+    line-height: 1.7rem;
+    width: 80%;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 4.5rem 4.5rem 0 0;
+    overflow: hidden;
+    margin-top: auto;
+    padding-bottom: 3rem;
+}
+
+h2 {
+    color: #3BB1D0;
+    font-weight: bolder;
+    font-family: 'League Spartan';
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+ion-item {
+    --background: #ffffff;
+}
+
+ion-list {
+  background: #ffffff;
+}
+
+ion-input {
+    background-color: #E4E4E4;
+    border-radius: 0.5rem;
+    margin-top: 10px;
+    color: #696969;
+}
+
+ion-input div {
+    color: #696969;
+}
+
+ion-input div::before {
+    content: '---';
+    color: #e4e4e400;
+}
+
+ion-button {
+    --background: var(--yellow);
+    --border-radius: 10rem;
+    height: var(--button-height);
+    margin-inline: 0.5rem;
+    font-weight: bolder;
+    font-family: 'League Spartan';
+    font-size: larger;
+    color: #7C5F00;
+    margin-bottom: 0.5rem;  
+}
+
+.buttons {
+    margin-top: 1rem;
+}

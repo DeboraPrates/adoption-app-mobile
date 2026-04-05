@@ -1,0 +1,38 @@
+<ion-content class="ion-padding" scrollY="false">
+
+  <div class="login-wrapper">
+
+    <h1 class="titulo">Olá<span>,</span></h1>
+    <p class="titulo2">Bem-vindo(a) de volta</p>
+
+    <div class="container">
+          <h2>Entrar</h2>
+
+          <ion-list>
+            <ion-item lines="none">
+              <ion-input labelPlacement="floating">
+                <div slot="label">E-mail</div>
+              </ion-input>
+            </ion-item>
+
+          </ion-list>
+          <ion-list>
+            <ion-item lines="none">
+              <ion-input labelPlacement="floating">
+                <div slot="label">Senha</div>
+              </ion-input>
+            </ion-item>
+              <small routerLink="esqueci-senha">Esqueceu a senha?</small>
+          </ion-list>
+
+          <div class="buttons">
+            <ion-button expand="block" routerLink="/home">Fazer Login</ion-button>
+            <ion-button expand="block" routerLink="/cadastro" id="cadastro">Não tenho uma conta</ion-button>
+
+          </div>
+        
+      </div>
+  </div>
+  
+
+</ion-content>

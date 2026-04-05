@@ -1,0 +1,104 @@
+ion-content {
+    --padding-start: 0;
+    --padding-end: 0;
+}
+
+.ion-padding {
+    --background: var(--bg-color);
+}
+
+.titulo, .titulo2 {
+    margin-left: 1rem;
+    font-family: 'League Spartan';
+}
+
+.titulo span {
+    color: #ffffff;
+}
+
+.titulo {
+    color: var(--yellow);
+    font-size: xx-large;
+    
+}
+
+.titulo2 {
+    margin-top: -1rem;
+    font-size: x-large;
+    line-height: 1.7rem;
+    width: 60%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    --background: #ffffff;
+    border-radius: 4.5rem 4.5rem 0 0;
+    overflow: hidden;
+}
+
+ion-item {
+    --background: #ffffff;
+}
+
+ion-list {
+  background: #ffffff;
+}
+
+ion-input {
+    background-color: #E4E4E4;
+    border-radius: 0.5rem;
+    margin-top: 10px;
+    color: #696969;
+}
+
+ion-input div {
+    color: #696969;
+}
+
+ion-input div::before {
+    content: '---';
+    color: #e4e4e400;
+}
+
+.row {
+    display: flex;
+    gap: 0.1rem;
+    margin-bottom: 1rem;
+}
+
+.row ion-item {
+    flex: 1;
+}
+
+h2 {
+    color: #3BB1D0;
+    font-weight: bolder;
+    font-family: 'League Spartan';
+    font-size: 2rem;
+    justify-self: center;
+    margin-top: 3rem;
+}
+
+.buttons {
+    --background: #ffffff;
+}
+
+ion-button {
+    --background: var(--yellow);
+    --border-radius: 10rem;
+    height: var(--button-height);
+    margin-inline: 0.5rem;
+    font-weight: bolder;
+    font-family: 'League Spartan';
+    font-size: larger;
+    color: #7C5F00;
+    margin-bottom: 0.5rem;  
+}
+
+#login {
+    --background: none;
+    border: 3px solid var(--yellow);
+    border-radius: 10rem;
+    color: var(--yellow);
+}

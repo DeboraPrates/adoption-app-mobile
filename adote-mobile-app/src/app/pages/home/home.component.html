@@ -1,0 +1,51 @@
+<!-- ícones 
+  <ion-icon name="settings"></ion-icon>
+  <ion-icon name="person-circle"></ion-icon>
+  <ion-icon name="document"></ion-icon>
+  <ion-icon name="paw"></ion-icon>
+  <ion-icon name="location"></ion-icon>
+  -->
+
+<ion-content>
+  <div class="user-info">
+    <ion-icon name="settings" id="settings"></ion-icon>
+    <ion-icon name="person-circle" id="user"></ion-icon>
+
+  </div>
+  
+  <div class="home-page" id="home-header">
+    <h2><span id="ongs">{{ ongsPerto }}</span> ONG's parceiras estão na sua cidade</h2>
+    <h2><span id="veterinarias">{{ veterinariasPerto }}</span> clínicas parceiras estão na sua cidade</h2>
+    <h2><span id="instituicoes">{{ instituicoesPerto }}</span> instituições parceiras em {{ usuarioEstado}} - {{ usuarioCidade}}</h2>
+  </div>
+
+  <div class="home-page" id="home-qa">
+    <h3>Acesso Rápido</h3>
+
+    <div class="quick-f-wrapper">
+      <div id="report">
+        <p>Fazer Denúncia</p>
+        <ion-icon name="document"></ion-icon>
+      </div>
+
+      <div id="register">
+        <p>Fazer Registro</p>
+        <ion-icon name="paw"></ion-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="disponiveis-adptn">
+    <div class="titulo">
+      <h1>Pets disponíveis para adoção</h1>
+      <p><ion-icon name="location"></ion-icon> Em {{usuarioEstado}} - {{usuarioCidade}}</p>
+    </div>
+
+    <div class="pet-card">
+
+      <!-- cards de pets disponíveis para adoção -->
+    
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,38 @@
+.ion-padding {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  --background: var(--bg-color);
+}
+
+ion-title {
+    margin-top: 5rem;
+}
+
+.titulo {
+    font-family: 'League Spartan';
+    font-size: 2rem;
+    margin-top: 5rem;
+}
+
+ion-button {
+    --border-radius: var(--button-radius);
+    height: var(--button-height);
+    margin-top: 0.5rem;
+    font-weight: bold;
+    font-size: var(--button-text);
+}
+
+#su-bttn {
+    --background: var(--light-blue);
+    color: #00558E;
+}
+
+#si-bttn {
+    --background: none;
+    border: 3px solid var(--light-blue);
+    border-radius: 0.5rem;
+    color: var(--light-blue);
+}
