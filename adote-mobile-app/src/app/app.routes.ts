@@ -4,6 +4,7 @@ import { WelcomePage } from './pages/welcome-page/welcome-page.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { EsqueciSenhaComponent } from './pages/esqueci-senha/esqueci-senha.component';
+import { PetPageComponent } from './pages/pet-page/pet-page.component';
 
 export const routes: Routes = [
   {
@@ -35,5 +36,9 @@ export const routes: Routes = [
   {
     path: 'esqueci-senha',
     component: EsqueciSenhaComponent,
+  },
+  {
+    path: 'pet-page',
+    component: PetPageComponent,
   },
 ];

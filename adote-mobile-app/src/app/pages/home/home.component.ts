@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-home', 
   standalone: true,
   imports: [IonicModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+        
 
 })
 export class HomeComponent {
@@ -16,5 +17,15 @@ export class HomeComponent {
   instituicoesPerto = this.ongsPerto + this.veterinariasPerto;
   usuarioCidade = 'RJ';
   usuarioEstado = 'Rio de Janeiro';
+
+  petList = false;
+
+  tipoAnimal = 'Gato';
+  idadeAnimal = 'Filhote';
+  
+  instituicaoDistancia = 15;
+  usuarioDistancia = 2;
+
+  distancia = this.instituicaoDistancia - this.usuarioDistancia;
 }
 
