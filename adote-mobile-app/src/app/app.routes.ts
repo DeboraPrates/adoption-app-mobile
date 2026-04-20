@@ -9,7 +9,7 @@ import { PetPageComponent } from './pages/pet-page/pet-page.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'welcome-page',
     pathMatch: 'full',
   },
 

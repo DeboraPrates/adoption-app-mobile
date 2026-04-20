@@ -1,64 +1,92 @@
-<!-- ícones 
-  <ion-icon name="settings"></ion-icon>
-  <ion-icon name="person-circle"></ion-icon>
-  <ion-icon name="document"></ion-icon>
-  <ion-icon name="paw"></ion-icon>
-  <ion-icon name="location"></ion-icon>
-  -->
-
-<ion-content>
-  <div class="user-info">
-    <ion-icon name="settings" id="settings"></ion-icon>
-    <ion-icon name="person-circle" id="user"></ion-icon>
-
+<ion-content [fullscreen]="true">
+ 
+ 
+  <div class="stars-bg">
   </div>
-  
-  <div class="home-page" id="home-header">
-    <h2><span id="ongs">{{ ongsPerto }}</span> ONG's parceiras estão na sua cidade</h2>
-    <h2><span id="veterinarias">{{ veterinariasPerto }}</span> clínicas parceiras estão na sua cidade</h2>
-    <h2><span id="instituicoes">{{ instituicoesPerto }}</span> instituições parceiras em {{ usuarioEstado}} - {{ usuarioCidade}}</h2>
+ 
+
+  <div class="top-bar">
+    <button class="avatar-btn" routerLink="/perfil" title="Perfil">
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </button>
+    <button class="settings-btn" routerLink="/configuracoes" title="Configurações">
+      <ion-icon name="settings"></ion-icon>
+    </button>
   </div>
+ 
 
-  <div class="home-page" id="home-qa">
-    <h3>Acesso Rápido</h3>
-
-    <div class="quick-f-wrapper">
-      <div id="report">
-        <p>Fazer Denúncia</p>
-        <ion-icon name="document"></ion-icon>
-      </div>
-
-      <div id="register">
-        <p>Fazer Registro</p>
-        <ion-icon name="paw"></ion-icon>
-      </div>
+  <div class="stats-card">
+    <div class="stat-row">
+      <span class="stat-num orange">{{ ongsPerto }}</span>
+      <span class="stat-text">ONG's parceiras estão na sua cidade</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-num red">{{ veterinariasPerto }}</span>
+      <span class="stat-text">clínicas parceiras estão perto de você</span>
+    </div>
+    <div class="stat-row">
+      <span class="stat-num dark-red">{{ instituicoesPerto }}</span>
+      <span class="stat-text">instituições em {{ usuarioEstado }} - {{ usuarioCidade }}</span>
     </div>
   </div>
-
-  <div class="disponiveis-adptn">
-    <div class="titulo">
-      <h1>Pets disponíveis para adoção</h1>
-      <p><ion-icon name="location"></ion-icon> Em {{ usuarioEstado }} - {{ usuarioCidade }}</p>
+ 
+  <!-- acesso rápido -->
+  <div class="quick-card">
+    <div class="quick-header">
+      <span class="quick-title">Acesso Rápido</span>
+      <button class="help-btn" title="Ajuda">
+        <ion-icon name="help"></ion-icon>
+      </button>
     </div>
-
-    <div class="pet-card">
-      @if (petList) {
-      <ion-card style="width: 10rem">
-        <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="foto do pet">
-
-        <ion-card-header>
-          <ion-card-title> {{ tipoAnimal }} | {{ idadeAnimal }} </ion-card-title>
-          <ion-card-subtitle>A {{ distancia }} de distância </ion-card-subtitle>
-        </ion-card-header>
-      </ion-card>
-        
+ 
+    <div class="quick-actions">
+      <button class="action-btn denuncia" routerLink="/denuncia/form">
+        <span class="action-label">Fazer uma<br>denúncia</span>
+        <div class="action-icon">
+          <ion-icon name="alert-circle-outline"></ion-icon>
+        </div>
+      </button>
+ 
+      <button class="action-btn registro" routerLink="/pet-page">
+        <span class="action-label">Fazer um<br>registro</span>
+        <div class="action-icon">
+          <ion-icon name="paw-outline"></ion-icon>
+        </div>
+      </button>
+    </div>
+  </div>
+ 
+  <!-- pets para adoção -->
+  <div class="adoption-section">
+    <div class="adoption-header">
+      <h1 class="adoption-title">Pets disponíveis para adoção</h1>
+      <p class="adoption-location">
+        <ion-icon name="location"></ion-icon>
+        Em <span class="city-highlight">{{ usuarioEstado }} - {{ usuarioCidade }}</span>
+      </p>
+    </div>
+ 
+    <div class="pet-grid">
+      @if (petList && petList.length > 0) {
+        @for (pet of petList; track pet.id) {
+          <div class="pet-card">
+            <div class="pet-img-wrap">
+              <img
+              title="pets"
+                [src]="pet.fotoUrl || 'assets/placeholder-pet.png'"
+                [alt]="'Foto de ' + pet.nome"
+              />
+            </div>
+            <div class="pet-info">
+              <p class="pet-type">{{ pet.especie }} | {{ pet.idade }}</p>
+              <p class="pet-dist">A {{ pet.distancia }}km de distância</p>
+            </div>
+          </div>
+        }
       } @else {
-        <p>Não há animais disponíveis no momento</p>
-    }
-
-
-    
+        <p class="empty-state">Nenhum animal disponível em {{ usuarioCidade }} no momento.</p>
+      }
     </div>
   </div>
-
+ 
 </ion-content>

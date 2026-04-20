@@ -1,0 +1,14 @@
+ion-button {
+    top: 12px;
+    left: 8px;
+    background-color: var(--bg-color);
+    padding-block: 8px;
+    padding-inline: 6px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+ion-icon {
+    color: var(--light-blue);
+    height: 1.5rem;
+}

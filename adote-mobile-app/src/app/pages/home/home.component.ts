@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home', 
   standalone: true,
-  imports: [IonicModule],
+  imports: [IonicModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
         
@@ -18,7 +19,7 @@ export class HomeComponent {
   usuarioCidade = 'RJ';
   usuarioEstado = 'Rio de Janeiro';
 
-  petList = false;
+  petList: any[] = [];
 
   tipoAnimal = 'Gato';
   idadeAnimal = 'Filhote';
