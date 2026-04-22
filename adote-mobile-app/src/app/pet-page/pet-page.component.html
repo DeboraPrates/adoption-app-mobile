@@ -1,0 +1,76 @@
+<ion-content [fullscreen]="true">
+
+
+  
+  <div class="pet-header">
+    <app-back-bttn></app-back-bttn>    
+    <ion-img
+      src="/assets/img/dog.jpg" id="pet-photo">
+    </ion-img>
+
+    <div class="pet-info">
+      <h3> {{ nomeAnimal}} </h3>
+      <p> <ion-icon name="location"></ion-icon> {{ nomeInstituicao}} </p>
+    </div>
+  </div>
+
+  <div class="pet-extra-info">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle><ion-icon name="medical"></ion-icon> Sexo</ion-card-subtitle>
+        <ion-card-title> Macho </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle><ion-icon name="medical"></ion-icon> Idade</ion-card-subtitle>
+        <ion-card-title> Adulto </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle><ion-icon name="medical"></ion-icon> Castrado</ion-card-subtitle>
+        <ion-card-title> Sim </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+  </div>
+
+  <div class="pet-detalhes">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Descrição</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Amet odio adipisci quasi! Modi omnis quam sed. Quo temporibus blanditiis aperiam.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Preferências</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content> Sua ração favorita é a Golden de carne.
+      </ion-card-content>
+    </ion-card>
+
+
+      <ion-card>
+      <ion-card-header>
+        <ion-card-title>Condições Médicas</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content> Saudável: Este animal está saudável e 
+        não necessita de nenhum cuidado ou restrição médica específica
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <app-yellow-button texto="Quero Adotar" rota="/home"></app-yellow-button>
+
+  
+</ion-content>

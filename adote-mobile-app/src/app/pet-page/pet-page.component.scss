@@ -1,0 +1,74 @@
+ion-content {
+    --background: #fff;
+    font-family: 'League Spartan';
+}
+
+.pet-header {
+    position: relative;
+}
+
+#pet-photo {
+    
+}
+
+app-back-bttn {
+    position: absolute;
+    z-index: 10;
+}
+
+.pet-info {
+    margin-left: 0.5rem;
+    color: #000;
+    display: flex;
+}
+
+.pet-info h3 {
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.pet-info p {
+    font-size: 15px;
+    align-content: center;
+    margin-left: 0.8rem;
+    color: var(--yellow);
+    background-color: #ffc40026;
+    padding: 0.4rem;
+    border-radius: 1rem;
+}
+
+.pet-extra-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pet-extra-info ion-card {
+    background-color: #fff;
+    width: 30%;
+    margin-inline: 0.2rem;
+    font-family: 'League Spartan';
+    box-shadow: none;
+    border: 1px solid #bbbbbb;
+    border-radius: 0.5rem;
+    text-align: center;
+
+    &-subtitle { color: #767676; }
+    &-title { color: #000000; }
+
+}
+
+.pet-detalhes {
+
+}
+
+.pet-detalhes ion-card {
+    background-color: #fff;
+    box-shadow: none;
+    border: 1px solid #bbbbbb;
+    border-radius: 0.5rem;
+    font-family: 'League Spartan';
+    color: #434343;
+
+    &-title { color: #000; font-weight: 600; }
+}

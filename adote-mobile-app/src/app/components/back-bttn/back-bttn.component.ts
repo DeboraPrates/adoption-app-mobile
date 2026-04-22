@@ -6,7 +6,11 @@ import { Location } from '@angular/common';
   selector: 'app-back-bttn',
   imports: [IonicModule],
   standalone: true,
-  templateUrl: './back-bttn.component.html',
+  template: `
+  <ion-button fill="clear" (click)="voltar()">
+  <ion-icon name="chevron-back-outline"></ion-icon>
+  </ion-button>
+  `,
   styleUrls: ['./back-bttn.component.scss'],
 })
 export class BackBttnComponent  implements OnInit {
