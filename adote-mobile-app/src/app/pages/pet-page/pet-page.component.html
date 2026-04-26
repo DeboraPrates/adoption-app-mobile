@@ -1,0 +1,79 @@
+<ion-content [fullscreen]="true" class="pet-content">
+
+  <div class="pet-header">
+    <app-back-bttn></app-back-bttn>
+
+
+    <img src="assets/img/dog.jpg" id="pet-photo" alt="Foto do animal" />
+
+    <div class="pet-info">
+      <h3>{{ nomeAnimal }}</h3>
+      <p><ion-icon name="location"></ion-icon> {{ nomeInstituicao }}</p>
+    </div>
+  </div>
+
+  <div class="pet-extra-info">
+
+
+    <ion-card>
+      <ion-card-header>
+        <span class="card-subtitle"><ion-icon name="medical"></ion-icon> Sexo</span>
+        <span class="card-title">Macho</span>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <span class="card-subtitle"><ion-icon name="medical"></ion-icon> Idade</span>
+        <span class="card-title">Adulto</span>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <span class="card-subtitle"><ion-icon name="medical"></ion-icon> Castrado</span>
+        <span class="card-title">Sim</span>
+      </ion-card-header>
+    </ion-card>
+
+  </div>
+
+  <div class="pet-detalhes">
+
+    <ion-card>
+      <ion-card-header>
+        <span class="card-title">Descrição</span>
+      </ion-card-header>
+      <ion-card-content>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Amet odio adipisci quasi! Modi omnis quam sed. Quo temporibus blanditiis aperiam.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <span class="card-title">Preferências</span>
+      </ion-card-header>
+      <ion-card-content>
+        Sua ração favorita é a Golden de carne.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <span class="card-title">Condições Médicas</span>
+      </ion-card-header>
+      <ion-card-content>
+        Saudável: Este animal está saudável e
+        não necessita de nenhum cuidado ou restrição médica específica
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+
+
+  <div class="btn-wrapper">
+    <app-yellow-button texto="Quero Adotar" rota="/register-form"></app-yellow-button>
+  </div>
+
+</ion-content>

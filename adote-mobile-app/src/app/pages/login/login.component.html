@@ -1,38 +1,51 @@
-<ion-content class="ion-padding" scrollY="false">
+<ion-content class="login-content" [scrollEvents]="false">
 
   <div class="login-wrapper">
 
-    <h1 class="titulo">Olá<span>,</span></h1>
-    <p class="titulo2">Bem-vindo(a) de volta</p>
+    <div class="login-topo">
+      <h1 class="titulo">Olá<span>,</span></h1>
+      <p class="titulo2">Bem-vindo(a) de volta</p>
+    </div>
 
-    <div class="container">
-          <h2>Entrar</h2>
+    <div class="login-container">
+      <h2>Entrar</h2>
 
-          <ion-list>
-            <ion-item lines="none">
-              <ion-input labelPlacement="floating">
-                <div slot="label">E-mail</div>
-              </ion-input>
-            </ion-item>
+      <ion-list class="form-list">
 
-          </ion-list>
-          <ion-list>
-            <ion-item lines="none">
-              <ion-input labelPlacement="floating">
-                <div slot="label">Senha</div>
-              </ion-input>
-            </ion-item>
-              <small routerLink="esqueci-senha">Esqueceu a senha?</small>
-          </ion-list>
+        <ion-item class="input-item" lines="none">
+          <ion-input
+            class="campo"
+            placeholder="E-mail"
+            type="email"
+            autocomplete="email"
+          ></ion-input>
+        </ion-item>
 
-          <div class="buttons">
-            <ion-button expand="block" routerLink="/home">Fazer Login</ion-button>
-            <ion-button expand="block" routerLink="/cadastro" id="cadastro">Não tenho uma conta</ion-button>
+        <ion-item class="input-item" lines="none">
+          <ion-input
+            class="campo"
+            placeholder="Senha"
+            type="password"
+          >
+            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          </ion-input>
+        </ion-item>
 
-          </div>
-        
+      </ion-list>
+
+      <small class="forgot" routerLink="/esqueci-senha">Esqueceu a senha?</small>
+
+      <div class="buttons">
+
+        <ion-button class="btn-login" expand="block" routerLink="/home">
+          Fazer Login
+        </ion-button>
+        <ion-button class="btn-cadastro" expand="block" routerLink="/cadastro">
+          Não tenho uma conta
+        </ion-button>
       </div>
+
+    </div>
   </div>
-  
 
 </ion-content>

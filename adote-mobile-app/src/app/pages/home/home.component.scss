@@ -36,6 +36,8 @@ ion-content {
   justify-content: space-between;
   align-items: center;
   padding: 16px 20px 8px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
 }
 
 .avatar-btn {
@@ -76,6 +78,8 @@ ion-content {
     display: flex;
     flex-direction: column;
     gap: 12px;
+      -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
 }
 
 .stat-row {
@@ -144,6 +148,8 @@ ion-content {
 .quick-actions {
   display: flex;
   gap: 12px;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
 }
 
 .action-btn {

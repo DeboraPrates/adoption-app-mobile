@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { BackBttnComponent } from '../components/back-bttn/back-bttn.component';
-import { YellowButtonComponent } from '../components/yellow-button/yellow-button.component';
+import { BackBttnComponent } from 'src/app/components/back-bttn/back-bttn.component';
+import { YellowButtonComponent } from 'src/app/components/yellow-button/yellow-button.component';
 
 @Component({
   selector: 'app-pet-page',

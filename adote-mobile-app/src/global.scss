@@ -9,6 +9,7 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
@@ -34,4 +35,33 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+// @import '@ionic/angular/css/palettes/dark.system.css';   * comentando temporariamente *
+
+@font-face {
+  font-family: 'League Spartan';
+  src: url('/assets/fonts/LeagueSpartan-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'League Spartan', sans-serif;
+}
+
+// variáveis globais
+
+:root {
+    --bg-color: #0F4C5C;
+    --yellow: #FFC300;
+    --light-blue: #AFEEFF;
+    --orange: #E36414;
+    --purple: #5F0F40;
+    --deep-red: #9A031E;
+
+
+    --button-radius: 0.5rem;
+    --button-height: 2.7rem;
+    --button-text: 1rem;
+    --input-color: #E4E4E4;
+}

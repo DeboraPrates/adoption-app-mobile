@@ -1,70 +1,97 @@
-<ion-content class="ion-padding" scrollY="false">
-  <h1 class="titulo">Olá<span>,</span></h1>
-  <p class="titulo2"> Aqui sua contribuição faz a diferença</p>
+<ion-content class="cadastro-content" scrollY="false">
 
-  <ion-content class="container" scrollY="false">
-    <h2>Cadastrar</h2>
-
-    <ion-list>
-      <ion-item lines="none">
-        <ion-input labelPlacement="floating">
-          <div slot="label">Nome Completo</div>
-        </ion-input>
-      </ion-item>
-    </ion-list>
-  
-    <ion-list>
-      <ion-item lines="none">
-        <ion-input labelPlacement="floating">
-          <div slot="label">E-mail</div>
-        </ion-input>
-      </ion-item>
-
-    </ion-list>
-    <ion-list>
-      <ion-item lines="none">
-        <ion-input labelPlacement="floating">
-          <div slot="label">Senha</div>
-        </ion-input>
-      </ion-item>
-    </ion-list>
-  
-    <ion-list>
-      <ion-item lines="none">
-        <ion-input labelPlacement="floating">
-          <div slot="label">CPF</div>
-        </ion-input>
-      </ion-item>
-    </ion-list>
-
-    <div class="row">
-    <ion-list>
-      <ion-item lines="none">
-        <ion-input labelPlacement="floating" id="estado">
-          <div slot="label">Estado</div>
-        </ion-input>
-      </ion-item>
-    </ion-list>
+  <div class="cadastro-wrapper">
 
 
-      <ion-list>
-      <ion-item lines="none">
-        <ion-input labelPlacement="floating" id="cidade">
-          <div slot="label">Cidade</div>
-        </ion-input>
-      </ion-item>
-    </ion-list>
+    <div class="full-content">
+
     </div>
-    
 
-    <ion-content class="buttons">
-    
-      <ion-button expand="block" routerLink="/home">Fazer Cadastro</ion-button>
-      <ion-button expand="block" routerLink="/login" id="login">Já tenho conta</ion-button>
+    <div class="cadastro-topo">
+      <h1 class="titulo">Olá<span>,</span></h1>
+      <p class="titulo2">Aqui sua contribuição<br>faz a diferença</p>
+    </div>
 
-    </ion-content>
-    
-    
-  </ion-content>
+    <div class="cadastro-card">
+      <h2>Cadastrar</h2>
+
+      <ion-item lines="none">
+        <ion-input
+          class="campo"
+          labelPlacement="floating"
+          label="Nome Completo"
+          autocomplete="name"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-input
+          class="campo"
+          labelPlacement="floating"
+          label="E-mail"
+          type="email"
+          autocomplete="email"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-input
+          class="campo"
+          labelPlacement="floating"
+          label="Senha"
+          type="password"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-input
+          class="campo"
+          labelPlacement="floating"
+          label="CPF"
+          inputmode="numeric"
+        ></ion-input>
+      </ion-item>
+
+      <div class="row">   
+        <ion-item lines="none">
+          <ion-input
+            class="campo"
+            labelPlacement="floating"
+            label="Estado"
+          ></ion-input>      
+        </ion-item>
+      
+        <ion-item lines="none">
+          <ion-input
+            class="campo"
+            labelPlacement="floating"
+            label="Cidade"
+          ></ion-input>   
+        </ion-item>
+      </div> 
+
+
+
+      <div class="buttons">
+
+        <ion-button 
+        class="btn-cadastro" 
+        expand="block" 
+        routerLink="/home">
+          Fazer Cadastro
+        </ion-button>
+
+        <ion-button 
+        class="btn-login" 
+        expand="block" 
+        routerLink="/login">
+          Já tenho conta
+        </ion-button>
+      </div>
+
+    </div>
+  </div>
+
+
 
 </ion-content>
