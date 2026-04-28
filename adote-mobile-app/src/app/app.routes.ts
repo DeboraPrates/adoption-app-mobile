@@ -8,6 +8,8 @@ import { PetPageComponent } from './pages/pet-page/pet-page.component';
 import { YellowButtonComponent } from './components/yellow-button/yellow-button.component';
 import { ReportFormComponent } from './pages/report-form/report-form.component';
 import { RegisterFormComponent } from './pages/register-form/register-form.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 export const routes: Routes = [
   {
@@ -52,4 +54,12 @@ export const routes: Routes = [
     path: 'register-form',
     component: RegisterFormComponent,
   },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent,
+  }
 ];

@@ -12,7 +12,13 @@ $button-text: 1rem;
 $input-color: #E4E4E4;
 
 ion-content {
-  --background: transparent; // coloquei transparente pra ver se é essa droga q ta atrapalhando
+  --background: transparent;
+}
+
+.container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .welcome-content {

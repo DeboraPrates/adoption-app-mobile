@@ -1,75 +1,100 @@
-ion-content {
-    --padding-start: 0;
-    --padding-end: 0;
-    --background: var(--bg-color);
+.forget-content {
+  --background: #0F4C5C;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
 }
 
-ion-content::part(scroll) {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+.forget-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: #0F4C5C;
 }
 
-.cdg-wrapper {
-    margin-top: auto;
-}
-
-.titulo, .titulo2 {
-    margin-left: 1rem;
-    font-family: 'League Spartan';
+.forget-topo {
+  flex: 1;
+  padding: 2.5rem 1.2rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .titulo {
-    color: var(--yellow);
-    font-size: xx-large;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #FFC300;
+  margin: 0 0 0.2rem;
+  line-height: 1;
+}
+
+.titulo span {
+  color: #ffffff;
 }
 
 .titulo2 {
-    margin-top: -1rem;
-    font-size: x-large;
-    line-height: 1.7rem;
-    width: 80%;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.5;
 }
 
-.container {
-    background-color: #ffffff;
-    border-radius: 4.5rem 4.5rem 0 0;
-    overflow: hidden;
-    margin-top: auto;
-    padding-bottom: 3rem;
+.forget-container {
+  background: #ffffff;
+  border-radius: 4rem 4rem 0 0;
+  padding: 0 1.5rem 3rem;
+  margin-top: -3rem;
 }
 
 h2 {
-    color: #3BB1D0;
-    font-weight: bolder;
-    font-family: 'League Spartan';
-    font-size: 2rem;
-    text-align: center;
-    margin-top: 3rem;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3BB1D0;
+  text-align: center;
+  margin: 0 0 1.2rem;
+  padding-top: 2rem;
 }
 
-ion-item {
-    --background: #ffffff;
+
+.form-list {
+  background: transparent;
+  padding: 0;
+  contain: none;
 }
 
-ion-list {
-  background: #ffffff;
+.input-item {
+  --background: transparent;
+  --background-activated: transparent;
+  --background-focused: transparent;
+  --background-hover: transparent;
+  --border-color: transparent;
+  --highlight-color-focused: transparent;
+  --highlight-color-valid: transparent;
+  --highlight-color-invalid: transparent;
+  --inner-padding-end: 0;
+  --inner-padding-start: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --min-height: 0;
+  margin-bottom: 0.8rem;
 }
 
-ion-input {
-    background-color: #E4E4E4;
-    border-radius: 0.5rem;
-    margin-top: 10px;
-    color: #696969;
-}
-
-ion-input div {
-    color: #696969;
-}
-
-ion-input div::before {
-    content: '---';
-    color: #e4e4e400;
+.campo {
+  --background: #E4E4E4;
+  --color: #444444;
+  --placeholder-color: #696969;
+  --border-radius: 0.5rem;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.8rem;
 }
 
 ion-button {

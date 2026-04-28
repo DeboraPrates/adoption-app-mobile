@@ -12,43 +12,43 @@
       <p class="titulo2">Aqui sua contribuição<br>faz a diferença</p>
     </div>
 
-    <div class="cadastro-card">
+    <form class="cadastro-card" (ngSubmit)="onSubmit()">
       <h2>Cadastrar</h2>
 
       <ion-item lines="none">
         <ion-input
           class="campo"
-          labelPlacement="floating"
-          label="Nome Completo"
+          placeholder="Nome Completo"
           autocomplete="name"
+          formControlName="nomeCompleto"
         ></ion-input>
       </ion-item>
 
       <ion-item lines="none">
         <ion-input
           class="campo"
-          labelPlacement="floating"
-          label="E-mail"
+          placeholder="E-mail"
           type="email"
           autocomplete="email"
+          formControlName="email"
         ></ion-input>
       </ion-item>
 
       <ion-item lines="none">
         <ion-input
           class="campo"
-          labelPlacement="floating"
-          label="Senha"
+          placeholder="Senha"
           type="password"
+          formControlName="senha"
         ></ion-input>
       </ion-item>
 
       <ion-item lines="none">
         <ion-input
           class="campo"
-          labelPlacement="floating"
-          label="CPF"
+          placeholder="CPF"
           inputmode="numeric"
+          formControlName="cpf"
         ></ion-input>
       </ion-item>
 
@@ -56,16 +56,16 @@
         <ion-item lines="none">
           <ion-input
             class="campo"
-            labelPlacement="floating"
-            label="Estado"
+            placeholder="Estado"
+          formControlName="estado"
           ></ion-input>      
         </ion-item>
       
         <ion-item lines="none">
           <ion-input
             class="campo"
-            labelPlacement="floating"
-            label="Cidade"
+            placeholder="Cidade"
+          formControlName="cidade"
           ></ion-input>   
         </ion-item>
       </div> 
@@ -74,22 +74,18 @@
 
       <div class="buttons">
 
-        <ion-button 
-        class="btn-cadastro" 
-        expand="block" 
-        routerLink="/home">
+        <ion-button type="submit" class="btn-cadastro" expand="block">
           Fazer Cadastro
         </ion-button>
 
-        <ion-button 
-        class="btn-login" 
-        expand="block" 
-        routerLink="/login">
+        <ion-button class="btn-login" expand="block" routerLink="/login">
           Já tenho conta
         </ion-button>
+
       </div>
 
-    </div>
+
+    </form>
   </div>
 
 

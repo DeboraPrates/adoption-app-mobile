@@ -1,19 +1,29 @@
-<ion-content class="ion-padding" scrollY="false">
+<ion-content class="foget-content" scrollY="false">
 
-  <div class="cdg-wrapper">
+  <div class="forget-wrapper">
 
-    <h1 class="titulo">Esqueceu a senha?</h1>
-    <p class="titulo2">Tudo bem, você pode trocá-la com seu e-mail</p>
+    <div class="forget-topo">
+      <h1 class="titulo">Esqueceu a senha?</h1>
+      <p class="titulo2">Tudo bem, você pode trocá-la com seu e-mail</p>
+    </div>
 
-    <div class="container">
+    <div class="forget-container">
+
           <h2>Redefinir Senha</h2>
 
-          <ion-list>
-            <ion-item lines="none">
-              <ion-input labelPlacement="floating">
-                <div slot="label">E-mail</div>
-              </ion-input>
+          <ion-list class="form-list">
+
+            <ion-item 
+            lines="none">
+
+              <ion-input 
+              placeholder="E-mail"
+              class="campo"
+              type="email"
+              ></ion-input>
+
             </ion-item>
+
           </ion-list>
 
           <div class="buttons">

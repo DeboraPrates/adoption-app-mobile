@@ -89,15 +89,11 @@ h2 {
   --background: #E4E4E4;
   --color: #444444;
   --placeholder-color: #696969;
-  --placeholder-opacity: 1;
   --border-radius: 0.5rem;
   --padding-start: 1rem;
   --padding-end: 1rem;
-  --padding-top: 0.85rem;
-  --padding-bottom: 0.85rem;
-  --highlight-color-focused: #3BB1D0;
-  width: 100%;
   border-radius: 0.5rem;
+  margin-bottom: 0.8rem;
 }
 
 .forgot {
@@ -110,6 +106,7 @@ h2 {
   cursor: pointer;
 }
 
+
 .buttons {
   margin-top: 1.2rem;
   display: flex;
@@ -120,28 +117,24 @@ h2 {
 .btn-login {
   --background: #FFC300;
   --background-activated: #e6b000;
-  --background-focused: #e6b000;
   --border-radius: 10rem;
   --color: #7C5F00;
-  --box-shadow: none;
-  height: 52px;
+  height: var(--button-height);
   font-family: 'League Spartan', sans-serif;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .btn-cadastro {
   --background: transparent;
-  --background-activated: rgba(255, 195, 0, 0.1);
-  --background-focused: rgba(255, 195, 0, 0.1);
+  --background-activated: rgba(245, 197, 24, 0.1);
   --border-radius: 10rem;
   --color: #FFC300;
   --border-color: #FFC300;
   --border-width: 3px;
   --border-style: solid;
-  --box-shadow: none;
-  height: 52px;
+  height: var(--button-height);
   font-family: 'League Spartan', sans-serif;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
