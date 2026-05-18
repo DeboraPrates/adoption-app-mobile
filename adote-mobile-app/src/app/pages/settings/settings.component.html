@@ -1,3 +1,72 @@
-<p>
-  settings works!
-</p>
+<ion-content [fullscreen]="true">
+
+  <div class="settings-header">
+    <app-back-bttn></app-back-bttn>
+    <h2>Configurações</h2>
+  </div>
+
+  <div id="user-info">
+    <img src="assets/img/gatinho.jpeg" alt="" srcset="">
+
+    <div id="user-cred" *ngIf="usuarioDados">
+      <p id="user-nome">{{ usuarioDados?.nome }}</p>
+      <p id="user-email">{{ usuarioDados?.email }} </p>
+    </div>
+
+        <div id="user-cred" *ngIf="!usuarioDados">
+      <p id="user-email">Carregando dados...</p>
+    </div>
+  </div>
+
+  <div class="setting-block">
+    <div class="header-block">Conta</div>
+
+    <ion-list>
+      <ion-item lines="none" button detail="true">
+        <ion-icon name="person-circle"></ion-icon>
+        Meu Perfil
+      </ion-item>
+
+      <ion-item lines="none" button detail="true">
+        <ion-icon name="lock-closed"></ion-icon>
+        Senha e Segurança
+      </ion-item>
+
+      <ion-item lines="none" button detail="true">
+        <ion-icon name="notifications"></ion-icon>
+        Notificações
+      </ion-item>
+    </ion-list>
+
+    <div class="header-block">Preferências</div>
+
+    <ion-list>
+      <ion-item lines="none" button detail="true" routerLink="/about">
+        <ion-icon name="information-circle"></ion-icon>
+        Sobre Nós
+      </ion-item>
+      
+      <ion-item lines="none" button detail="true">
+        <ion-icon name="cloudy-night"></ion-icon>
+        Tema
+      </ion-item>
+      
+      <ion-item lines="none" button detail="true">
+        <ion-icon name="paw"></ion-icon>
+        Minhas Candidaturas
+      </ion-item>
+    </ion-list>
+
+        <div class="header-block">Mais</div>
+
+      <ion-list>
+        <ion-item lines="none" button detail="true" id="logout" (click)="deslogar()">
+        <ion-icon name="log-out" id="logout-icon"></ion-icon>
+        Fazer Logout
+        </ion-item>
+      </ion-list>
+
+  </div>
+
+
+</ion-content>

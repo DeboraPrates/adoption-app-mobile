@@ -1,0 +1,65 @@
+ion-content {
+    font-family: 'League Spartan', sans-serif;
+    --background: #F0F0F0;
+    -webkit-text-stroke-color: rgb(255, 87, 87);
+}
+
+.about-header {
+    background-color: #ffffff;
+    padding-block: 1.2rem;
+}
+
+.about-header h2 {
+    justify-self: center;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+    color: #0A2E38;
+    margin-left: 0.7rem;
+    margin-top: 1.5rem;
+}
+
+ion-text p {
+    color: #424242;
+    margin-left: 0.7rem;
+    width: 91%;
+    text-align: justify;
+    line-height: 20px;
+}
+
+.contribuintes {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    gap: 8px;
+    width: 90%;
+}
+
+.contribuintes p {
+    font-size: 14px;
+    background-color: #fff;
+    padding: 6px;
+    border-radius: 8px;
+    margin: 0;
+    text-align: center;
+}
+
+ul {
+    display: flex;
+    gap: 20px;
+    width: 94%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+li {
+    margin: 0 auto;
+}
+
+.stack {
+    font-size: 3rem;
+    justify-self: center;
+}

@@ -18,6 +18,7 @@ export class HomeComponent {
   instituicoesPerto = this.ongsPerto + this.veterinariasPerto;
   usuarioCidade = 'RJ';
   usuarioEstado = 'Rio de Janeiro';
+  nomeInstituicao = 'Clínica Veterinária PetCare';
 
   petList: any[] = [];
 

@@ -2,17 +2,15 @@
 
   <div class="cadastro-wrapper">
 
-
-    <div class="full-content">
-
-    </div>
+    <div class="full-content"></div>
 
     <div class="cadastro-topo">
       <h1 class="titulo">Olá<span>,</span></h1>
       <p class="titulo2">Aqui sua contribuição<br>faz a diferença</p>
     </div>
 
-    <form class="cadastro-card" (ngSubmit)="onSubmit()">
+    
+    <form class="cadastro-card" (ngSubmit)="testeCadastro()">
       <h2>Cadastrar</h2>
 
       <ion-item lines="none">
@@ -20,7 +18,8 @@
           class="campo"
           placeholder="Nome Completo"
           autocomplete="name"
-          formControlName="nomeCompleto"
+          name="nome"
+          [(ngModel)]="usuario.nome"
         ></ion-input>
       </ion-item>
 
@@ -30,25 +29,32 @@
           placeholder="E-mail"
           type="email"
           autocomplete="email"
-          formControlName="email"
+          name="email"
+          [(ngModel)]="usuario.email"
         ></ion-input>
       </ion-item>
 
       <ion-item lines="none">
         <ion-input
           class="campo"
+          name="nome"
           placeholder="Senha"
           type="password"
-          formControlName="senha"
+          name="senha"
+          [(ngModel)]="usuario.senha"
+          required
         ></ion-input>
       </ion-item>
 
       <ion-item lines="none">
         <ion-input
           class="campo"
+          name="cpf"
           placeholder="CPF"
           inputmode="numeric"
-          formControlName="cpf"
+          name="cpf"
+          [(ngModel)]="usuario.cpf"
+          required
         ></ion-input>
       </ion-item>
 
@@ -56,24 +62,26 @@
         <ion-item lines="none">
           <ion-input
             class="campo"
+            name="estado"
             placeholder="Estado"
-          formControlName="estado"
+            name="estado"
+            [(ngModel)]="usuario.estado"
           ></ion-input>      
         </ion-item>
       
         <ion-item lines="none">
           <ion-input
             class="campo"
+            name="cidade"
             placeholder="Cidade"
-          formControlName="cidade"
+            name="cidade"
+            [(ngModel)]="usuario.cidade"
           ></ion-input>   
         </ion-item>
       </div> 
 
-
-
       <div class="buttons">
-
+        
         <ion-button type="submit" class="btn-cadastro" expand="block">
           Fazer Cadastro
         </ion-button>
@@ -81,13 +89,9 @@
         <ion-button class="btn-login" expand="block" routerLink="/login">
           Já tenho conta
         </ion-button>
-
       </div>
-
 
     </form>
   </div>
-
-
 
 </ion-content>

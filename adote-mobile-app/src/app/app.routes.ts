@@ -10,6 +10,7 @@ import { ReportFormComponent } from './pages/report-form/report-form.component';
 import { RegisterFormComponent } from './pages/register-form/register-form.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { AboutComponent } from './pages/about/about.component';
 
 export const routes: Routes = [
   {
@@ -61,5 +62,10 @@ export const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent,
-  }
+  },
+  {
+  path: 'about',
+  component: AboutComponent,
+  }  
+
 ];
