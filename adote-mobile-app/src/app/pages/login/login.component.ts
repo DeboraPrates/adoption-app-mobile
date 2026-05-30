@@ -3,29 +3,34 @@ import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { IonContent, IonList, IonItem, IonInput,
-  IonButton, IonInputPasswordToggle } from "@ionic/angular/standalone";
-
-// Importados os controllers para serem usados como providers locais ou se certificar que o Ionic os gerencie
-import { LoadingController, AlertController } from '@ionic/angular/standalone';
+import { 
+  IonContent, 
+  IonList, 
+  IonItem, 
+  IonInput,
+  IonButton, 
+  IonInputPasswordToggle, 
+  LoadingController, 
+  AlertController 
+} from "@ionic/angular/standalone";
 
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from '../../firebase';
 import { doc, getDoc } from 'firebase/firestore';
 
-
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ RouterModule, IonContent, IonList, IonItem, IonInput,
-    IonButton, IonInputPasswordToggle, CommonModule, FormsModule ],
-  providers: [LoadingController, AlertController], // Garante que os services do Ionic estejam disponíveis neste componente standalone
+  imports: [ 
+    RouterModule, IonContent, IonList, IonItem, IonInput,
+    IonButton, IonInputPasswordToggle, CommonModule, FormsModule 
+  ],
+  // Removido a linha de providers locais para evitar bugs com overlays do Ionic
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
 
-  // Objeto para capturar o que o usuário digita
   credenciais = {
     email: '',
     senha: ''
@@ -59,67 +64,75 @@ export class LoginComponent {
       );
 
       const userId = userCredential.user.uid;
+      console.log('Usuário autenticado com sucesso no Auth:', userId);
 
-      // Busca o documento do usuário no Firestore
+      // Busca o documento do usuário no Firestore para conferir o nível de acesso
       const docRef = doc(db, "usuarios", userId);
       const docSnap = await getDoc(docRef);
 
+      // Fecha o carregamento imediatamente após receber a resposta do servidor
       await loading.dismiss();
 
       if (docSnap.exists()) {
         const dadosUsuario = docSnap.data();
-        const nivelAcesso = dadosUsuario['role']; // Pega o 'comum' ou 'admin'
+        const nivelAcesso = dadosUsuario['role']; 
 
-        // Redireciona dependendo do nível de acesso
-        if (nivelAcesso === 'admin') {
-          this.router.navigateByUrl('/admin-dashboard'); // Tela do Admin
-        } else if (nivelAcesso === 'instituicao') {
-          this.router.navigateByUrl('/instituicao-home'); // Tela da Instituição
+        if (nivelAcesso === 'instituicao') {
+     const estaAprovado = dadosUsuario['aprovado'];
+     
+     if (estaAprovado) {
+       this.router.navigateByUrl('/home');
         } else {
-          this.router.navigateByUrl('/home'); // Tela do Usuário comum
+          // Se não estiver aprovado, manda para uma tela simples de "Em Análise"
+          this.router.navigateByUrl('/cadastro-analise'); 
         }
-      } else {
-        // Se o usuário existe no Auth mas não no banco (raro, mas herança de testes anteriores)
-        this.router.navigateByUrl('/home');
+        return;
       }
 
-      console.log('Usuário logado com sucesso:', userCredential.user.uid);
-      
-      // Fecha o carregamento
-      await loading.dismiss();
+      // 4. Redireciona dependendo do nível de acesso e usa o 'return' para parar a execução
+      if (nivelAcesso === 'admin') {
+        this.router.navigateByUrl('/admin-dashboard'); 
+        return;
 
-      // 4. Redireciona para a página principal
-      this.router.navigateByUrl('/home');
+      } else if (nivelAcesso === 'instituicao') {
+        const estaAprovado = dadosUsuario['aprovado'];
+        
+        if (estaAprovado) {
+          this.router.navigateByUrl('/instituicao-home'); 
+        } else {
+          // Se não estiver aprovado, manda para uma tela simples de "Em Análise"
+          this.router.navigateByUrl('/cadastro-analise'); 
+        }
+        return; // Esse return mata a execução se for instituição
+
+      } else {
+        // Usuário comum cai aqui, totalmente separado da instituição
+        this.router.navigateByUrl('/home'); 
+        return;
+      }
+      } else {
+        // Se o usuário existe no Auth mas o documento não existe no banco (ex: deletado manualmente)
+        console.warn('Usuário autenticado, mas documento não encontrado no Firestore.');
+        this.router.navigateByUrl('/home');
+        return;
+      }
 
     } catch (error: any) {
+      // Garante o fechamento do loading se houver qualquer rejeição do Firebase
       await loading.dismiss();
       console.error('Erro ao logar:', error);
 
-      // Mensagem padrão de segurança (cobre e-mail inexistente e senha errada nas versões novas)
       let mensagemErro = 'E-mail ou senha incorretos.';
 
-      // Se o formato do e-mail for inválido (ex: "usuario@com")
       if (error.code === 'auth/invalid-email') {
         mensagemErro = 'O formato do e-mail digitado é inválido.';
-        
-      } 
-      // Se a conta não existir (em projetos com proteção de enumeração desativada)
-      else if (error.code === 'auth/user-not-found') {
+      } else if (error.code === 'auth/user-not-found') {
         mensagemErro = 'Esta conta não existe. Verifique o e-mail ou cadastre-se.';
-        
-      } 
-      // Se o usuário digitou a senha errada (em projetos antigos/configurações específicas)
-      else if (error.code === 'auth/wrong-password') {
+      } else if (error.code === 'auth/wrong-password') {
         mensagemErro = 'Senha incorreta. Tente novamente.';
-        
-      } 
-      // Se a conta foi bloqueada por muitas tentativas erradas
-      else if (error.code === 'auth/too-many-requests') {
+      } else if (error.code === 'auth/too-many-requests') {
         mensagemErro = 'Acesso bloqueado temporariamente devido a muitas tentativas falhas. Tente mais tarde.';
-        
-      } 
-      // Se a conta foi desativada pelo administrador no painel
-      else if (error.code === 'auth/user-disabled') {
+      } else if (error.code === 'auth/user-disabled') {
         mensagemErro = 'Esta conta foi desativada.';
       }
 
@@ -127,7 +140,6 @@ export class LoginComponent {
     }
   }
 
-  // Função auxiliar para alertas
   async exibirAlerta(titulo: string, mensagem: string) {
     const alert = await this.alertCtrl.create({
       header: titulo,

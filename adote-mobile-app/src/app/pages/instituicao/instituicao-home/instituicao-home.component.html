@@ -1,0 +1,129 @@
+<ion-content class="inst-content">
+
+  <!-- fundo com gradiente sutil -->
+  <div class="bg-layer"></div>
+
+  <!-- topo -->
+  <div class="top-bar">
+    <div class="inst-avatar">
+      <ion-icon name="business"></ion-icon>
+    </div>
+    <div class="inst-info">
+      <span class="inst-label">Instituição</span>
+      <span class="inst-name">{{ nomeInstituicao }}</span>
+    </div>
+    <button class="notif-btn" routerLink="/notificacoes">
+      <ion-icon name="notifications-outline"></ion-icon>
+      <span class="notif-badge" *ngIf="notificacoesPendentes > 0">
+        {{ notificacoesPendentes }}
+      </span>
+    </button>
+  </div>
+
+  <!-- cards de estatísticas -->
+  <div class="stats-section">
+
+    <div class="stat-card accent-yellow" (click)="irPara('/inst/animais')">
+      <span class="stat-num">{{ animaisDisponiveis }}</span>
+      <span class="stat-label">Animais disponíveis</span>
+      <ion-icon name="paw" class="stat-icon"></ion-icon>
+    </div>
+
+    <div class="stat-card accent-teal" (click)="irPara('/inst/adocoes')">
+      <span class="stat-num">{{ adocoesEmAndamento }}</span>
+      <span class="stat-label">Adoções em andamento</span>
+      <ion-icon name="heart" class="stat-icon"></ion-icon>
+    </div>
+
+    <div class="stat-card accent-coral" (click)="irPara('/inst/denuncias')">
+      <span class="stat-num">{{ denunciasPendentes }}</span>
+      <span class="stat-label">Denúncias pendentes</span>
+      <ion-icon name="alert-circle" class="stat-icon"></ion-icon>
+    </div>
+
+    <div class="stat-card accent-blue" (click)="irPara('/inst/registros')">
+      <span class="stat-num">{{ registrosPendentes }}</span>
+      <span class="stat-label">Registros pendentes</span>
+      <ion-icon name="document-text" class="stat-icon"></ion-icon>
+    </div>
+    
+  </div>
+
+  <!-- ações rápidas -->
+  <div class="section-header">
+    <span class="section-title">Ações rápidas</span>
+  </div>
+  <div class="quick-actions">
+    <button class="action-btn" routerLink="/animal-cadastro">
+      <div class="action-icon-wrap yellow">
+        <ion-icon name="add-circle"></ion-icon>
+      </div>
+      <span>Cadastrar animal</span>
+    </button>
+    <button class="action-btn" routerLink="/inst/adocoes">
+      <div class="action-icon-wrap teal">
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </div>
+      <span>Solicitações de adoção</span>
+    </button>
+    <button class="action-btn" routerLink="/inst/denuncias">
+      <div class="action-icon-wrap coral">
+        <ion-icon name="warning"></ion-icon>
+      </div>
+      <span>Ver denúncias</span>
+    </button>
+    <button class="action-btn" routerLink="/inst/registros">
+      <div class="action-icon-wrap blue">
+        <ion-icon name="list-circle"></ion-icon>
+      </div>
+      <span>Ver registros</span>
+    </button>
+  </div>
+
+  <!-- solicitações recentes -->
+  <div class="section-header">
+    <span class="section-title">Solicitações recentes</span>
+    <button class="ver-todas" routerLink="/inst/adocoes">Ver todas</button>
+  </div>
+
+  <div class="solicitacoes-list">
+    @if (solicitacoes && solicitacoes.length > 0) {
+      @for (s of solicitacoes; track s.id) {
+        <div class="solicitacao-card" (click)="verSolicitacao(s)">
+          <div class="sol-avatar">
+            <ion-icon name="person-circle-outline"></ion-icon>
+          </div>
+          <div class="sol-info">
+            <span class="sol-nome">{{ s.nomeAdotante }}</span>
+            <span class="sol-animal">Quer adotar: <strong>{{ s.nomeAnimal }}</strong></span>
+            <span class="sol-data">{{ s.data }}</span>
+          </div>
+          <span class="sol-status" [class]="'status-' + s.status">
+            {{ s.statusLabel }}
+          </span>
+        </div>
+      }
+    } @else {
+      <p class="empty-state">Nenhuma solicitação recente.</p>
+    }
+  </div>
+
+  <!-- gráfico de adoções por mês -->
+  <div class="section-header">
+    <span class="section-title">Adoções por mês</span>
+  </div>
+  <div class="chart-card">
+    <div class="bar-chart">
+      @for (mes of adocoesPorMes; track mes.label) {
+        <div class="bar-col">
+          <span class="bar-value">{{ mes.valor }}</span>
+          <div class="bar-fill" [style.height.%]="(mes.valor / maxAdocoes) * 100"></div>
+          <span class="bar-label">{{ mes.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="bottom-spacer"></div>
+
+</ion-content>

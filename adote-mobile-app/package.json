@@ -1,5 +1,5 @@
 {
-  "name": "munch-mobile-app",
+  "name": "adote-mobile-app",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -23,6 +23,7 @@
     "@angular/router": "^20.0.0",
     "@capacitor/android": "8.2.0",
     "@capacitor/app": "8.0.1",
+    "@capacitor/camera": "^8.2.0",
     "@capacitor/core": "8.2.0",
     "@capacitor/haptics": "8.0.1",
     "@capacitor/keyboard": "8.0.1",

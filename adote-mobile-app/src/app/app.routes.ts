@@ -1,16 +1,4 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { WelcomePage } from './pages/welcome-page/welcome-page.component';
-import { CadastroComponent } from './pages/cadastro/cadastro.component';
-import { LoginComponent } from './pages/login/login.component';
-import { EsqueciSenhaComponent } from './pages/esqueci-senha/esqueci-senha.component';
-import { PetPageComponent } from './pages/pet-page/pet-page.component';
-import { YellowButtonComponent } from './components/yellow-button/yellow-button.component';
-import { ReportFormComponent } from './pages/report-form/report-form.component';
-import { RegisterFormComponent } from './pages/register-form/register-form.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { SettingsComponent } from './pages/settings/settings.component';
-import { AboutComponent } from './pages/about/about.component';
 
 export const routes: Routes = [
   {
@@ -18,54 +6,64 @@ export const routes: Routes = [
     redirectTo: 'welcome-page',
     pathMatch: 'full',
   },
-
-  {
-    path: 'home',
-    component: HomeComponent,
-  },
-
   {
     path: 'welcome-page',
-    component: WelcomePage,
+    loadComponent: () => import('./pages/welcome-page/welcome-page.component').then(m => m.WelcomePage),
   },
-
+  {
+    path: 'home',
+    loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent),
+  },
   {
     path: 'cadastro',
-    component: CadastroComponent,
+    loadComponent: () => import('./pages/cadastro/cadastro.component').then(m => m.CadastroComponent),
   },
-
   {
     path: 'login',
-    component: LoginComponent,
+    loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent),
   },
-
   {
     path: 'esqueci-senha',
-    component: EsqueciSenhaComponent,
+    loadComponent: () => import('./pages/esqueci-senha/esqueci-senha.component').then(m => m.EsqueciSenhaComponent),
   },
   {
     path: 'pet-page',
-    component: PetPageComponent,
+    loadComponent: () => import('./pages/pet-page/pet-page.component').then(m => m.PetPageComponent),
   },
   {
     path: 'report-form',
-    component: ReportFormComponent,
+    loadComponent: () => import('./pages/report-form/report-form.component').then(m => m.ReportFormComponent),
   },
   {
     path: 'register-form',
-    component: RegisterFormComponent,
+    loadComponent: () => import('./pages/register-form/register-form.component').then(m => m.RegisterFormComponent),
   },
   {
     path: 'profile',
-    component: ProfileComponent,
+    loadComponent: () => import('./pages/profile/profile.component').then(m => m.ProfileComponent),
   },
   {
     path: 'settings',
-    component: SettingsComponent,
+    loadComponent: () => import('./pages/settings/settings.component').then(m => m.SettingsComponent),
   },
   {
-  path: 'about',
-  component: AboutComponent,
-  }  
-
+    path: 'about',
+    loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent),
+  },
+  {
+    path: 'role',
+    loadComponent: () => import('./pages/role/role.component').then(m => m.RoleComponent),
+  },
+  {
+    path: 'cadastro-instituicao',
+    loadComponent: () => import('./pages/instituicao/cadastro-instituicao/cadastro-instituicao.component').then(m => m.CadastroInstituicaoComponent),
+  },
+  {
+    path: 'instituicao-home',
+    loadComponent: () => import('./pages/instituicao/instituicao-home/instituicao-home.component').then(m => m.InstituicaoHomeComponent),
+  },
+    {
+    path: 'animal-cadastro',
+    loadComponent: () => import('./pages/instituicao/animal-cadastro/animal-cadastro.component').then(m => m.AnimalCadastroComponent),
+  }
 ];

@@ -1,0 +1,171 @@
+<ion-content class="cadastro-content" scrollY="false">
+
+  <div class="cadastro-wrapper">
+
+    <div class="full-content"></div>
+
+    <div class="cadastro-topo">
+      <h1 class="titulo">Olá<span>,</span></h1>
+      <p class="titulo2">Aqui sua contribuição<br>faz a diferença</p>
+    </div>
+
+    
+    <form class="cadastro-card" (ngSubmit)="testeCadastro()">
+      <h2>Cadastrar</h2>
+
+      <!-- PARTE 1 -->
+       @if (etapa === 1) {
+      <ion-item lines="none">
+        <ion-input
+          class="campo"
+          placeholder="Nome da Instituição"
+          autocomplete="name"
+          name="nome"
+          [(ngModel)]="instituicao.nome"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-input
+          class="campo"
+          placeholder="E-mail"
+          type="email"
+          autocomplete="email"
+          name="email"
+          [(ngModel)]="instituicao.email"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-input
+          class="campo"
+          name="nome"
+          placeholder="Senha"
+          type="password"
+          name="senha"
+          [(ngModel)]="instituicao.senha"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-input
+          class="campo"
+          name="cnpj"
+          placeholder="CNPJ"
+          inputmode="numeric"
+          name="cnpj"
+          [(ngModel)]="instituicao.cnpj"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <div class="row">   
+
+      </div>      
+      
+      <div class="buttons">
+        
+        <ion-button
+        class="btn-cadastro" 
+        expand="block"
+        (click)="avancar()"> Próximo 
+
+        <ion-icon 
+        name="arrow-forward" 
+        slot="end"></ion-icon>
+
+        </ion-button>
+
+        <ion-button class="btn-login" expand="block" routerLink="/login">
+          Já tenho conta
+        </ion-button>
+        
+      </div>
+        }
+
+        <!-- PARTE 2-->
+         @if (etapa === 2) {
+          <ion-item lines="none">
+            <ion-input
+              class="campo"
+              name="estado"
+              placeholder="Estado"
+              name="estado"
+              [(ngModel)]="instituicao.estado"
+            ></ion-input>      
+          </ion-item>
+      
+          <ion-item lines="none">
+            <ion-input
+              class="campo"
+              name="cidade"
+              placeholder="Cidade"
+              name="cidade"
+              [(ngModel)]="instituicao.cidade"
+            ></ion-input>   
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-input
+              class="campo"
+              name="bairro"
+              placeholder="Bairro"
+              name="bairro"
+              [(ngModel)]="instituicao.bairro"
+            ></ion-input>   
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-input
+              class="campo"
+              name="telefone"
+              placeholder="Telefone"
+              name="telefone"
+              [(ngModel)]="instituicao.telefone"
+            ></ion-input>   
+          </ion-item>
+
+          <ion-list>
+            <ion-item lines="none">
+              <ion-select 
+              label="Instituição"
+              [interfaceOptions]="customPopoverOptions" 
+              interface="popover"
+              [(ngModel)]="instituicao.subTipo"
+              name="subTipo">
+
+              <ion-select-option value="instituicao">Instituição</ion-select-option>
+              <ion-select-option value="ong">ONG</ion-select-option>
+              <ion-select-option value="abrigo">Abrigo de Animais</ion-select-option>
+              <ion-select-option value="clinica">Clínica Veterinária</ion-select-option>
+              <ion-select-option value="petshop">Pet Shop</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+
+          <div class="buttons">
+        
+            <ion-button
+            type="submit"
+            class="btn-cadastro" 
+            expand="block"> Fazer Cadastro 
+
+            </ion-button>
+
+            <ion-button 
+            type="button"
+            (click)="voltar()"
+            class="btn-login" 
+            expand="block">
+              Voltar
+            </ion-button>
+            
+          </div>
+         }
+
+
+    </form>
+  </div>
+
+</ion-content>

@@ -2,5 +2,7 @@ ion-button {
     --background: var(--yellow);
     --border-radius: 2rem;
     --color: #fff;
-    margin-block: 1rem;
+    width: 90%;
+    justify-self: center;
+    margin-block: 1.5rem;
 }

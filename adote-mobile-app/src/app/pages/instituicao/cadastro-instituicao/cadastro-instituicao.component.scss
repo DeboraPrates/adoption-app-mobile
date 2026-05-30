@@ -1,0 +1,136 @@
+.cadastro-content {
+  --background: #0F4C5C;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+}
+
+.cadastro-topo {
+  padding: 2.5rem 1.2rem 1rem;
+}
+
+.cadastro-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.full-content {
+    flex: 1;
+}
+
+.titulo {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #FFC300;
+  margin: 0 0 0.2rem;
+  line-height: 1;
+  margin-top: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+}
+
+.titulo span {
+  color: #ffffff;
+}
+
+.titulo2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.5;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+}
+
+.cadastro-card {
+  background: #ffffff;
+  border-radius: 4rem 4rem 0 0;
+  padding: 0 1.5rem 2rem;
+  margin-top: 0 auto; 
+  height: 72%;
+}
+
+h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3BB1D0;
+  text-align: center;
+  margin: 2rem 0 1.2rem;
+  padding-top: 2rem;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+}
+
+ion-item {
+  --background: transparent;
+}
+
+.campo {
+  --background: #E4E4E4;
+  --color: #444444;
+  --placeholder-color: #696969;
+  --border-radius: 0.5rem;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.row {
+  display: flex;
+  gap: 1px;
+}
+
+.row .campo {
+  flex: 1;
+}
+
+.buttons {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.btn-cadastro {
+  --background: #FFC300;
+  --background-activated: #e6b000;
+  --border-radius: 10rem;
+  --color: #7C5F00;
+  height: var(--button-height);
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.btn-login {
+  --background: transparent;
+  --background-activated: rgba(245, 197, 24, 0.1);
+  --border-radius: 10rem;
+  --color: #FFC300;
+  --border-color: #FFC300;
+  --border-width: 3px;
+  --border-style: solid;
+  height: var(--button-height);
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+ion-select {
+  --background: #E4E4E4;
+  --placeholder-color: #696969;
+  --border-radius: 0.5rem;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  padding-top: 1rem;
+  color: #444444;
+  border-radius: 0.5rem;
+  margin-top: -20px;
+}

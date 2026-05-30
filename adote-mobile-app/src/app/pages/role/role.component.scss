@@ -1,0 +1,44 @@
+ion-content {
+    --background: var(--bg-color);
+    height: 100vh;
+}
+
+#container {
+    display: flex;
+    margin-top: 5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+h2 {
+    color: #fff;
+    font-family: 'League Spartan', sans-serif;
+    font-size: 1.7rem;
+    margin-bottom: 3rem;
+}
+
+.role-container {
+    display: flex;
+    flex-direction: column;
+}
+
+ion-button {
+    --background: var(--yellow);
+    
+    font-weight: 700;
+    font-family: 'League Spartan', sans-serif;
+}
+
+small {
+    color: #fffab4;
+    font-family: 'League Spartan', sans-serif;
+    font-size: medium;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+#role-top {
+    margin-bottom: 1rem;
+}

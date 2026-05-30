@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { IonicModule, LoadingController } from '@ionic/angular';
-import { BackBttnComponent } from 'src/app/components/back-bttn/back-bttn.component';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { BackBttnComponent } from 'src/app/components/back-bttn/back-bttn.component';
 
+// Todos os componentes e controllers do Ionic importados estritamente do standalone
 import {
-  IonContent, IonList, IonItem, IonIcon
+  IonContent, IonList, IonItem, IonIcon, LoadingController
 } from "@ionic/angular/standalone";
 
-import { signOut, onAuthStateChanged } from 'firebase/auth';
+import { signOut, onAuthStateChanged, Unsubscribe } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { db, auth } from '../../firebase';
-
 
 @Component({
   selector: 'app-settings',
@@ -20,35 +19,30 @@ import { db, auth } from '../../firebase';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
 })
-export class SettingsComponent  implements OnInit {
+export class SettingsComponent implements OnInit, OnDestroy {
   
+  tipoUsuario: string = ''; 
+  usuarioDados: any = null;
+  carregando: boolean = true;
+  
+  // Guarda a inscrição do Firebase para poder cancelar depois
+  private authSubscription!: Unsubscribe;
+
   constructor(
     private router: Router,
     private loadingCtrl: LoadingController
   ) {}
 
-  // 1. Crie a variável aqui para o HTML ter acesso a ela
-  tipoUsuario: string = ''; 
-  usuarioDados: any = null;
-  carregando: boolean = true;
-
   async deslogar() {
-    // 1. Cria o indicador de carregamento
     const loading = await this.loadingCtrl.create({
       message: 'Saindo...',
     });
     await loading.present();
 
     try {
-      // 2. Faz o logout no Firebase
       await signOut(auth);
-
-      // Fecha o carregamento
       await loading.dismiss();
-
-      // 3. Redireciona para a página de login (substitua pelo seu caminho de login)
       this.router.navigateByUrl('/login');
-      
     } catch (error) {
       await loading.dismiss();
       console.error('Erro ao deslogar:', error);
@@ -56,23 +50,19 @@ export class SettingsComponent  implements OnInit {
   }
 
   ngOnInit() {
-
-// 2. Monitora se o usuário está logado
-    onAuthStateChanged(auth, async (user) => {
+    // Armazena o listener na variável
+    this.authSubscription = onAuthStateChanged(auth, async (user) => {
       if (user) {
         try {
-          // 3. Busca o documento dele no Firestore
           const docRef = doc(db, "usuarios", user.uid);
           const docSnap = await getDoc(docRef);
-
           
           if (docSnap.exists()) {
             const dados = docSnap.data();
-          
-            // 4. Salva o 'role' na variável que criamos lá em cima
-            this.tipoUsuario = dados['role']; // vai guardar 'comum', 'admin', 'ong', etc.
+            
+            this.tipoUsuario = dados['role']; 
+            this.usuarioDados = dados; // CORRIGIDO: Agora o seu HTML vai receber os dados!
           } 
-
         } catch (error) {
           console.error("Erro ao buscar nível de acesso:", error);
         } finally {
@@ -80,9 +70,18 @@ export class SettingsComponent  implements OnInit {
         }
       } else {
         this.tipoUsuario = '';
+        this.usuarioDados = null;
         this.carregando = false;
+        this.router.navigateByUrl('/login'); // Se não está logado, segurança extra: joga pro login
       }
     });
   }
-}
 
+  // Executado automaticamente quando o usuário sai desta tela
+  ngOnDestroy() {
+    if (this.authSubscription) {
+      this.authSubscription(); // CORRIGIDO: Desliga o monitor do Firebase, poupando memória e internet
+      console.log('Listener do Firebase desativado para evitar vazamento de memória.');
+    }
+  }
+}

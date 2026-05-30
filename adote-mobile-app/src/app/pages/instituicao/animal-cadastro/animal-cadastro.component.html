@@ -1,0 +1,230 @@
+<ion-content [fullscreen]="true">
+
+    <div class="cadastro-header">
+      <app-back-bttn></app-back-bttn>
+      
+      <ion-text>
+        <h2>Novo Animal</h2>
+      </ion-text>
+
+    </div>
+
+    <div class="subtitle">
+      <h3>Básico</h3>
+      <small>Essas informações são básicas e devem ser preenchidas</small>
+    </div>
+    
+    <form (ngSubmit)="cadastroAnimal()">
+      <ion-list>
+        <div class="animal nome">
+          <ion-item lines="none">
+            <ion-input label="Nome do Animal" labelPlacement="stacked">
+            </ion-input>
+          </ion-item>
+        </div>
+
+      <div id="photo-container">
+        <label class="upload-box">
+          <input
+            type="file"
+            accept="image/*"
+            (change)="selecionarFoto()"
+            hidden>
+          <div class="conteudo-upload">
+            <p *ngIf="!previewImagem">Escolher foto</p>
+            <img
+              *ngIf="previewImagem"
+              [src]="previewImagem"
+              alt="Foto do animal">
+          </div>
+        </label>
+        <label class="upload-box">
+          <input
+            type="file"
+            accept="image/*"
+            capture="environment"
+            (change)="tirarFoto()"
+            hidden>
+          <div class="conteudo-upload">
+            <p *ngIf="!previewImagem">Tirar foto</p>
+            <img
+              *ngIf="previewImagem"
+              [src]="previewImagem"
+              alt="Foto do animal">
+          </div>
+        </label>
+      </div>
+
+        <div class="animal tipo">
+          <ion-label>Tipo do Animal</ion-label>
+            <ion-radio-group>
+              <div class="radio-container">
+                <ion-item lines="none" [class.selected]="animal.especie === 'gato'">
+                  <ion-radio
+                  value="gato"
+                  (click)="animal.especie = 'gato'">
+                  Gato</ion-radio>
+                </ion-item>
+                <ion-item lines="none" [class.selected]="animal.especie === 'cachorro'">
+                  <ion-radio
+                  value="cachorro"
+                  (click)="animal.especie = 'cachorro'">
+                  Cachorro</ion-radio>
+                </ion-item>
+                <ion-item lines="none" [class.selected]="animal.especie === 'coelho'">
+                  <ion-radio
+                  value="coelho"
+                  (click)="animal.especie = 'coelho'">
+                  Coelho</ion-radio>
+                </ion-item>
+                <ion-item lines="none" [class.selected]="animal.especie === 'tartaruga'">
+                  <ion-radio
+                  value="tartaruga"
+                  (click)="animal.especie = 'tartaruga'">
+                  Tartaruga</ion-radio>
+                </ion-item>
+              </div>
+      
+            </ion-radio-group>
+        </div>
+        <div class="animal sexo">
+          <ion-label>Sexo</ion-label>
+            <ion-radio-group>
+              <div class="radio-container">
+                <ion-item lines="none" [class.selected]="animal.sexo === 'femea'">
+                  <ion-radio
+                  value="femea"
+                  (click)="animal.sexo = 'femea'">
+                  Fêmea</ion-radio>
+                </ion-item>
+      
+                <ion-item lines="none" [class.selected]="animal.sexo === 'macho'">
+                  <ion-radio
+                  value="macho"
+                  (click)="animal.sexo = 'macho'">
+                  Macho</ion-radio>
+                </ion-item>
+              </div>
+            </ion-radio-group>
+        </div>
+
+        <div class="animal idade">
+          <ion-label>Faixa Etária</ion-label>
+            <ion-radio-group>
+              <div class="radio-container">
+                <ion-item lines="none" [class.selected]="animal.faixaEtaria === 'filhote'">
+                  <ion-radio
+                  value="filhote"
+                  (click)="animal.faixaEtaria = 'filhote'">
+                  Filhote</ion-radio>
+                </ion-item>
+                <ion-item lines="none" [class.selected]="animal.faixaEtaria === 'adulto'">
+                  <ion-radio
+                  value="adulto"
+                  (click)="animal.faixaEtaria = 'adulto'">
+                  Adulto</ion-radio>
+                </ion-item>
+                <ion-item lines="none" [class.selected]="animal.faixaEtaria === 'idoso'">
+                  <ion-radio
+                  value="idoso"
+                  (click)="animal.faixaEtaria = 'idoso'">
+                  Idoso</ion-radio>
+                </ion-item>
+              </div>
+      
+            </ion-radio-group>
+        </div>
+
+          <div class="animal castrado">
+            <ion-label>É castrado?</ion-label>
+              <ion-radio-group [(ngModel)]="animal.castrado">
+                <div class="radio-container">
+
+                  <ion-item 
+                  lines="none">
+                  
+                    <ion-radio
+                    [value]="true"
+                    (click)="animal.castrado = true">
+                    Sim</ion-radio>
+                  </ion-item>
+      
+                  <ion-item 
+                  lines="none">
+
+                    <ion-radio
+                    [value]="false"
+                    (click)="animal.castrado = false">
+                    Não</ion-radio>
+                  </ion-item>
+                </div>
+      
+              </ion-radio-group>
+          </div>
+      </ion-list>
+      
+      <div class="subtitle">
+        <h3>Detalhes</h3>
+        <small>Essas informações são detalhes e podem ser deixadas em branco</small>
+      </div>
+      <div class="animal detalhes">
+        <ion-text>Fale um pouco sobre o animal. Seu comportamento,
+          peculiaridades, condições médicas, e tudo mais que achar relevante.
+        </ion-text>
+      
+        <div class="animal comportamento">
+          <ion-textarea
+          label="Comportamento"
+          labelPlacement="stacked"
+          [autoGrow]="true"></ion-textarea>
+        </div>
+        <div class="animal preferencias">
+          <ion-textarea
+          label="Ele possui alguma preferência?"
+          labelPlacement="stacked"
+          [autoGrow]="true"></ion-textarea>
+        </div>
+        <div class="animal condicoes_medicas">
+          <ion-text>Esse animal apresenta alguma condição médica?</ion-text>
+      
+          <ion-radio-group [(ngModel)]="animal.condicaoMedica">
+
+            <div class="radio-container">
+              <ion-item 
+              lines="none">
+                <ion-radio
+                [value]="true"
+                (click)="animalCondicao = true">
+                Sim</ion-radio>
+              </ion-item>
+      
+              <ion-item lines="none" [class.selected]="animalCondicao === false">
+                <ion-radio
+                [value]="false"
+                (click)="animalCondicao = false">
+                Não</ion-radio>
+              </ion-item>
+            </div>
+      
+          </ion-radio-group>
+          <div *ngIf="animalCondicao === true" class="condicao-textarea">
+            <ion-textarea
+            label="Qual condição médica?"
+            labelPlacement="stacked"
+            [autoGrow]="true">
+            </ion-textarea>
+          </div>
+      
+      
+        </div>
+      </div>
+      <app-yellow-button 
+      type="submit"
+      texto="Cadastrar Animal" 
+      rota="/instituicao-home"
+      ></app-yellow-button>
+    
+    </form>
+
+
+</ion-content>

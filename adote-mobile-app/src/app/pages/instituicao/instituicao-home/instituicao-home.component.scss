@@ -1,0 +1,368 @@
+// ── Paleta ────────────────────────────────────────────────────
+$bg:         #0d3b47;
+$bg-card:    #ffffff;
+$yellow:     #FFC300;
+$teal:       #3BB1D0;
+$coral:      #E8621A;
+$blue:       #3B6FD0;
+$text-dark:  #1a1a2e;
+$text-mid:   #555;
+$text-light: #888;
+
+// ── ion-content ───────────────────────────────────────────────
+.inst-content {
+  --background: transparent;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  font-family: 'League Spartan', sans-serif;
+}
+
+// ── Fundo ─────────────────────────────────────────────────────
+.bg-layer {
+  position: fixed;
+  inset: 0;
+  background: #005c72;
+  z-index: 0;
+}
+
+.top-bar,
+.stats-section,
+.section-header,
+.quick-actions,
+.solicitacoes-list,
+.chart-card,
+.bottom-spacer {
+  position: relative;
+  z-index: 1;
+}
+
+// ── Topo ──────────────────────────────────────────────────────
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.2rem 0.5rem;
+}
+
+.inst-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-icon {
+    font-size: 24px;
+    color: #ffffff;
+  }
+}
+
+.inst-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.inst-label {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.inst-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.notif-btn {
+  position: relative;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  ion-icon {
+    font-size: 20px;
+    color: #ffffff;
+  }
+}
+
+.notif-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: $coral;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  border-radius: 99px;
+  padding: 1px 4px;
+  min-width: 14px;
+  text-align: center;
+}
+
+// ── Stats ─────────────────────────────────────────────────────
+.stats-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 1rem 1.2rem 0.5rem;
+}
+
+.stat-card {
+  background: $bg-card;
+  border-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.15s;
+  
+
+  &:active { transform: scale(0.97); }
+}
+
+.accent-yellow { background-color: #fff6dc; }
+.accent-teal { background-color: #d7f7ff; }
+.accent-coral { background-color: #ffe5d7; }
+.accent-blue { background-color: #c6daff; }
+
+.accent-yellow .stat-icon { color: #785c00;}
+.accent-teal .stat-icon { color: #004152; }
+.accent-coral .stat-icon { color: #451800; }
+.accent-blue .stat-icon { color: #002260;}
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: $text-mid;
+  line-height: 1.2;
+}
+
+.stat-icon {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 2rem;
+  opacity: 0.12;
+}
+
+.accent-yellow { .stat-num { color: $yellow; } }
+.accent-teal   { .stat-num { color: $teal; } }
+.accent-coral  { .stat-num { color: $coral; } }
+.accent-blue   { .stat-num { color: $blue; } }
+
+// ── Section header ────────────────────────────────────────────
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.2rem 0.5rem;
+}
+
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.ver-todas {
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  color: $teal;
+  font-family: 'League Spartan', sans-serif;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+// ── Ações rápidas ─────────────────────────────────────────────
+.quick-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 1.2rem;
+}
+
+.action-btn {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 0.9rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.15s;
+
+  &:active { background: rgba(255,255,255,0.12); }
+
+  span {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.2;
+    text-align: left;
+  }
+}
+
+.action-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-icon { font-size: 20px; color: #ffffff; }
+
+  &.yellow { background: $yellow; }
+  &.teal   { background: $teal; }
+  &.coral  { background: $coral; }
+  &.blue   { background: $blue; }
+}
+
+// ── Solicitações ──────────────────────────────────────────────
+.solicitacoes-list {
+  padding: 0 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.solicitacao-card {
+  background: $bg-card;
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.15s;
+
+  &:active { transform: scale(0.98); }
+}
+
+.sol-avatar {
+  ion-icon {
+    font-size: 38px;
+    color: #cccccc;
+  }
+}
+
+.sol-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sol-nome {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: $text-dark;
+}
+
+.sol-animal {
+  font-size: 0.78rem;
+  color: $text-mid;
+
+  strong { color: $text-dark; }
+}
+
+.sol-data {
+  font-size: 0.7rem;
+  color: $text-light;
+}
+
+.sol-status {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 99px;
+  white-space: nowrap;
+
+  &.status-pendente  { background: #FFF3CD; color: #856404; }
+  &.status-aprovada  { background: #D1F5EA; color: #0A6640; }
+  &.status-reprovada { background: #FDECEA; color: #922B21; }
+}
+
+.empty-state {
+  text-align: center;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.85rem;
+  padding: 1.5rem 0;
+}
+
+// ── Gráfico de barras ─────────────────────────────────────────
+.chart-card {
+  background: $bg-card;
+  border-radius: 16px;
+  margin: 0 1.2rem;
+  padding: 1.2rem 1rem 0.8rem;
+}
+
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100px;
+  gap: 6px;
+}
+
+.bar-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.bar-value {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: $text-dark;
+}
+
+.bar-fill {
+  width: 100%;
+  background: linear-gradient(180deg, $teal 0%, #2ee0ff 100%);
+  border-radius: 4px 4px 0 0;
+  min-height: 4px;
+  transition: height 0.3s ease;
+}
+
+.bar-label {
+  font-size: 0.6rem;
+  color: $text-light;
+  font-weight: 500;
+}
+
+.bottom-spacer {
+  height: 2rem;
+}
