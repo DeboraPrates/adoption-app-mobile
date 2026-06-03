@@ -10,21 +10,22 @@ ion-content {
   --padding-top: 2px;
   --padding-start: 6px;
   --padding-end: 6px;
-    --min-height: 42px;
+  --min-height: 42px;
+  font-family: 'League Spartan', sans-serif;
 }
 
 .top-bar {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-bottom: 8px;
+  margin-bottom: 1px;
 }
 
 .steps-label {
   font-size: 0.9rem;
   color: #505050;
   font-weight: 600;
-  padding-top: 6px;
+  padding-top: 1px;
 }
 
 .progress-wrapper {
@@ -41,6 +42,7 @@ ion-content {
   border-radius: 999px;
   transition: width 280ms ease;
 }
+
 .step-body {
   position: relative;
   min-height: auto;
@@ -57,11 +59,11 @@ ion-content {
   transition: none;
   display: grid;
   gap: 2px;
+  margin-top: 7rem;
   padding-bottom: 0px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 100vh;
+  align-content: center;
 }
 
 .step-zero {
@@ -145,10 +147,6 @@ ion-toolbar .toolbar-background,
   opacity: 1;
   box-shadow: none;
   margin-top: 2px;
-}
-
-.back-button ion-icon {
-  font-size: 1.1rem;
 }
 
 ion-title {

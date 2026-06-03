@@ -5,6 +5,8 @@
 
 <ion-content [fullscreen]="true" [scrollY]="false">
 
+  <app-default-header header=""></app-default-header>
+
   <div class="top-bar" *ngIf="step > 1">
     <div class="steps-label">Etapa {{ step }} de {{ totalSteps }}</div>
     <div class="progress-wrapper">
@@ -230,9 +232,15 @@
   </div>
 
   <div *ngIf="step !== totalSteps" class="bottom-actions">
+
+    <app-secondary-button texto="Continuar" expand="block" (click)="nextStep()">
+      
+    </app-secondary-button>
+
     <ion-button class="continue-btn" expand="block" (click)="nextStep()">
       {{ step === 6 ? 'Enviar solicitação' : 'Continuar' }}
     </ion-button>
+
     <ion-button fill="outline" color="medium" (click)="cancel()">Cancelar</ion-button>
   </div>
 </ion-content>

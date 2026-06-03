@@ -26,6 +26,8 @@ import {
   IonCardTitle
 } from '@ionic/angular/standalone';
 
+import { SecondaryButtonComponent } from 'src/app/components/secondary-button/secondary-button.component';
+import { DefaultHeaderComponent } from 'src/app/components/default-header/default-header.component';
 import { BackBttnComponent } from 'src/app/components/back-bttn/back-bttn.component';
 
 @Component({
@@ -58,7 +60,9 @@ import { BackBttnComponent } from 'src/app/components/back-bttn/back-bttn.compon
     IonCardTitle,
     CommonModule,
     FormsModule,
-    BackBttnComponent
+    BackBttnComponent,
+    DefaultHeaderComponent,
+    SecondaryButtonComponent
   ]
 })
 export class FormAdotePage {

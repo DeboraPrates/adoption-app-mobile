@@ -1,4 +1,35 @@
-<ion-content>
+<ion-content [fullscreen]="true">
+    <app-back-bttn></app-back-bttn>
 
+    <div class="report-header">
+        <ion-text>
+            <h2>Fazer Denúncia</h2>
+        </ion-text>
+
+        <ion-text>
+            <p>Conhece algum caso de crime animal? Denuncie!</p>
+        </ion-text>
+
+        <div class="warn-container">
+            <ion-text>
+                <p>Sua denúncia pode ser feita de forma anônima. 
+                    Forneça o máximo de informações possível para ajudar no resgate.</p>
+            </ion-text>
+        </div>
+    </div>
+
+    <h3 class="report-guide">Onde está o animal?</h3>
+
+    <ion-list>
+        <ion-item>
+            <ion-input></ion-input>
+        </ion-item>
+    </ion-list>
+
+    <h3 class="report-guide">Sobre o animal</h3>
+    
+    <h3 class="report-guide">Tipo de denúncia</h3>
+    
+    <h3 class="report-guide">Upload de mídia</h3>
 
 </ion-content>
