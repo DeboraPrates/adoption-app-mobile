@@ -1,7 +1,0 @@
-{
-  "name": "munch-mobile-app",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular-standalone"
-}

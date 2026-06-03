@@ -48,7 +48,7 @@ export const routes: Routes = [
   },
   {
     path: 'about',
-    loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent),
+    loadComponent: () => import('./pages/settings-section/about/about.component').then(m => m.AboutComponent),
   },
   {
     path: 'role',
@@ -65,5 +65,17 @@ export const routes: Routes = [
     {
     path: 'animal-cadastro',
     loadComponent: () => import('./pages/instituicao/animal-cadastro/animal-cadastro.component').then(m => m.AnimalCadastroComponent),
-  }
+  },
+  {
+    path: 'form-adote',
+    loadComponent: () => import('./pages/form-adote/form-adote.page').then(m => m.FormAdotePage),
+  },
+  {
+    path: 'senha-e-seguranca',
+    loadComponent: () => import('./pages/settings-section/senha-e-seguranca/senha-e-seguranca.component').then(m => m.SenhaESegurancaComponent),
+  },
+  {
+    path: 'trocar-senha',
+    loadComponent: () => import('./pages/settings-section/trocar-senha/trocar-senha.component').then(m => m.TrocarSenhaComponent),
+  },
 ];

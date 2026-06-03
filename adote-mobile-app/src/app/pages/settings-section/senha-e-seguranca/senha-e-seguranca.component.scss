@@ -1,0 +1,27 @@
+ion-content {
+    --background: #F0F0F0;
+}
+
+ion-icon {
+    margin-right: 0.5rem;
+}
+
+ion-list {
+    width: 92%;
+    justify-self: center;
+    border-radius: 1rem;
+}
+
+ion-item {
+    font-family: 'League Spartan', sans-serif;
+    color: #484848;
+}
+
+.header-block {
+    background-color: transparent;
+    margin-block: 1rem;
+    margin-left: 1.2rem;
+    font-size: 1.2rem;
+    display: flex;
+    justify-items: center;
+}

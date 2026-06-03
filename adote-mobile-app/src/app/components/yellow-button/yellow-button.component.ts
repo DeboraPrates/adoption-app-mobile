@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { IonicModule } from '@ionic/angular';
+import { IonButton } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-yellow-button',
-  imports: [IonicModule, RouterLink],
+  imports: [RouterLink, IonButton],
   standalone: true,
   templateUrl: './yellow-button.component.html',
   styleUrls: ['./yellow-button.component.scss'],

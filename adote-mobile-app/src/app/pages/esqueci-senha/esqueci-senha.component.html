@@ -20,6 +20,7 @@
               placeholder="E-mail"
               class="campo"
               type="email"
+              [(ngModel)]="email"
               ></ion-input>
 
             </ion-item>
@@ -27,7 +28,7 @@
           </ion-list>
 
           <div class="buttons">
-            <ion-button expand="block" routerLink="/codigo">Enviar Código</ion-button>
+            <ion-button expand="block" (click)="recuperarSenha()">Enviar Link</ion-button>
 
           </div>
         

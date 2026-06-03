@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+
 
 import {
   IonContent, IonList, IonItem, IonInput,
@@ -16,9 +16,7 @@ import { db, auth } from '../../../firebase';
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, IonContent, IonList, 
-    IonItem, IonInput, IonButton, IonInputPasswordToggle, IonIcon, IonSelect,
-  IonSelectOption],
+  imports: [RouterModule, FormsModule, IonContent, IonList, IonItem, IonInput, IonButton, IonInputPasswordToggle, IonIcon, IonSelect, IonSelectOption],
   templateUrl: './cadastro-instituicao.component.html',
   styleUrls: ['./cadastro-instituicao.component.scss'],
 })
@@ -48,11 +46,9 @@ export class CadastroInstituicaoComponent {
     private alertCtrl: AlertController
   ) {}
 
-  // Controla qual etapa está visível (1 ou 2)
   etapa: number = 1;  
 
   async avancar() {
-    // Valida se a parte 1 está preenchida antes de ir para a 2
     if (this.instituicao.nome && this.instituicao.cnpj && this.instituicao.email && this.instituicao.senha) {
       this.etapa = 2;
     } else {
@@ -71,52 +67,44 @@ export class CadastroInstituicaoComponent {
   }
 
   async testeCadastro() {
-    // 1. Validação básica para não enviar campos vazios
     if (!this.instituicao.email || !this.instituicao.senha || !this.instituicao.nome) {
       this.exibirAlerta('Erro', 'Por favor, preencha os campos obrigatórios (Nome, E-mail e Senha).');
       return;
     }
 
-    // 2. Cria uma animação de "Carregando" na tela
     const loading = await this.loadingCtrl.create({
       message: 'Criando sua conta...',
     });
     await loading.present();
 
     try {
-      // 3. Cria o usuário no Firebase Auth
       const credenciais = await createUserWithEmailAndPassword(
         auth, 
         this.instituicao.email, 
         this.instituicao.senha
       );
 
-      const userId = credenciais.user.uid; // ID único gerado pelo Firebase
+      const userId = credenciais.user.uid; 
 
-      // 4. Salva as informações adicionais no Firestore na coleção "instituicaos"
-      // Usamos o UID do Auth como o ID do documento para ficarem interligados
-      await setDoc(doc(db, "instituicaos", userId), {
+      await setDoc(doc(db, "usuarios", userId), {
         nome: this.instituicao.nome,
         email: this.instituicao.email,
         cnpj: this.instituicao.cnpj,
         estado: this.instituicao.estado,
         cidade: this.instituicao.cidade,
         role: "instituicao",
-        aprovado: false,
+        aprovado: true,
         criadoEm: new Date()
       });
 
-      // Fecha o "Carregando"
       await loading.dismiss();
 
-      // 5. Se deu tudo certo, navega para a Home
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/instituicao-home');
 
     } catch (error: any) {
       await loading.dismiss();
       console.error('Erro ao cadastrar:', error);
       
-      // Tratamento de erros amigável para o usuário
       let mensagemErro = 'Não foi possível realizar o cadastro.';
       
       if (error.code === 'auth/email-already-in-use') {
@@ -131,7 +119,6 @@ export class CadastroInstituicaoComponent {
     }
   }
 
-  // Função auxiliar para exibir mensagens de alerta do Ionic
   async exibirAlerta(titulo: string, mensagem: string) {
     const alert = await this.alertCtrl.create({
       header: titulo,

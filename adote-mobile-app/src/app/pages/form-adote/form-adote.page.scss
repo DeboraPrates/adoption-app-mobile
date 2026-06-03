@@ -1,0 +1,356 @@
+:host {
+  display: block;
+  min-height: 100%;
+  background: #ffffff;
+}
+
+ion-content {
+  --background: #ffffff;
+  background: #ffffff;
+  --padding-top: 2px;
+  --padding-start: 6px;
+  --padding-end: 6px;
+    --min-height: 42px;
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.steps-label {
+  font-size: 0.9rem;
+  color: #505050;
+  font-weight: 600;
+  padding-top: 6px;
+}
+
+.progress-wrapper {
+  width: 100%;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #f4b41a, #ffd700);
+  border-radius: 999px;
+  transition: width 280ms ease;
+}
+.step-body {
+  position: relative;
+  min-height: auto;
+  padding-bottom: 12px;
+  padding-top: 2px;
+}
+
+.step-container {
+  position: relative;
+  width: 100%;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  transition: none;
+  display: grid;
+  gap: 2px;
+  padding-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.step-zero {
+  justify-content: center;
+  align-items: center;
+  min-height: auto;
+  padding-top: 2px;
+}
+
+.welcome-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: none;
+  padding: 6px 6px 6px;
+  display: grid;
+  gap: 6px;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 320px;
+}
+
+.step-zero h1 {
+  font-size: 2rem;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.step-zero p {
+  margin: 0;
+  color: #545454;
+  line-height: 1.45;
+  font-size: 0.94rem;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+ion-toolbar {
+  padding-inline-start: 8px;
+  padding-inline-end: 8px;
+  --min-height: 56px;
+}
+
+ion-header,
+.transparent-toolbar,
+ion-toolbar.transparent-toolbar {
+  --background: transparent !important;
+  --box-shadow: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Ensure the internal toolbar background element has no blur or background */
+ion-toolbar .toolbar-background,
+.transparent-toolbar .toolbar-background {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+.back-button {
+  --background: #0F4C5C;
+  --border-radius: 50%;
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --color: #ffffff;
+  opacity: 1;
+  box-shadow: none;
+  margin-top: 2px;
+}
+
+.back-button ion-icon {
+  font-size: 1.1rem;
+}
+
+ion-title {
+  font-size: 1rem;
+}
+
+.step-container h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.step-container p {
+  line-height: 1.6;
+  color: #4d4d4d;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: 14px;
+}
+
+.bottom-actions {
+  position: fixed;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 2px 6px 6px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.bottom-actions ion-button {
+  width: 80%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.bottom-actions ion-button.continue-btn {
+  --min-height: 36px;
+}
+
+.continue-btn {
+  --background: #3f78ff;
+  --color: #fff;
+}
+
+ion-card {
+  --background: #f7fbff;
+}
+
+ion-item {
+  border-radius: 14px;
+  margin-top: 4px;
+}
+
+.checkbox-group {
+  display: grid;
+  gap: 4px;
+  padding: 1px 0 2px;
+}
+
+.checkbox-item {
+  --background: #f7fbff;
+  border-radius: 16px;
+  padding: 6px 8px;
+  align-items: center;
+}
+
+.checkbox-item ion-label {
+  font-size: 0.95rem;
+  color: #23374d;
+  font-weight: 600;
+}
+
+.checkbox-item ion-checkbox {
+  --border-radius: 6px;
+  --checkmark-color: #ffffff;
+  --background: #ffffff;
+  --checked-background: #0F4C5C;
+}
+
+ion-textarea,
+ion-input,
+ion-select {
+  background: #fff;
+  border-radius: 14px;
+}
+
+.question-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+  margin-inline: 1rem;
+}
+
+.question-text {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #545454;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.radio-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.radio-group ion-item {
+  flex: 0 1 auto;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  --min-height: auto;
+  --inner-padding-start: 0;
+  --inner-padding-end: 0;
+}
+
+.radio-group ion-radio {
+  --size: 18px;
+}
+
+.radio-group ion-label {
+  margin-left: 8px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-option {
+  flex: 1 1 auto;
+  min-width: 40px;
+  padding: 8px 10px;
+  border: 1px solid #d0d0d0;
+  background: #f5f5f5;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #505050;
+  cursor: pointer;
+  transition: all 200ms ease;
+  white-space: nowrap;
+}
+
+.btn-option.active {
+  background: #0F4C5C;
+  color: #ffffff;
+  border-color: #0F4C5C;
+}
+
+.btn-option:active {
+  transform: scale(0.98);
+}
+
+.textarea-input {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  background: #f5f5f5;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: #505050;
+  resize: vertical;
+  min-height: 40px;
+}
+
+.textarea-input:focus {
+  outline: none;
+  border-color: #0F4C5C;
+  background: #ffffff;
+}
+
+.required {
+  color: #f4b41a;
+  font-size: 0.85rem;
+  margin-left: 4px;
+}
+
+/* Override Ionic's inner scroll padding which creates large white space
+   Keep the visible design unchanged by only removing extra bottom padding */
+ion-content .inner-scroll,
+ion-content .inner-scroll.scroll-y {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}

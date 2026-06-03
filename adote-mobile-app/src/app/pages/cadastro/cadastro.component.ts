@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 import {
   IonContent, 
@@ -14,6 +13,8 @@ import {
   AlertController
 } from "@ionic/angular/standalone";
 
+import { HttpClient } from '@angular/common/http';
+
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { db, auth } from '../../firebase';
@@ -21,8 +22,7 @@ import { db, auth } from '../../firebase';
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, IonContent, IonList, 
-    IonItem, IonInput, IonButton, IonInputPasswordToggle],
+  imports: [RouterModule, FormsModule, IonContent, IonList, IonItem, IonInput, IonButton, IonInputPasswordToggle],
   templateUrl: './cadastro.component.html',
   styleUrls: ['./cadastro.component.scss'],
 })
@@ -34,6 +34,7 @@ usuario = {
     email: '',
     senha: '',
     cpf: '',
+    cep: '',
     estado: '',
     cidade: ''
   };
@@ -41,55 +42,50 @@ usuario = {
   constructor(
     private router: Router,
     private loadingCtrl: LoadingController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private http: HttpClient
   ) {}
 
   async testeCadastro() {
-    // 1. Validação básica para não enviar campos vazios
     if (!this.usuario.email || !this.usuario.senha || !this.usuario.nome) {
       this.exibirAlerta('Erro', 'Por favor, preencha os campos obrigatórios (Nome, E-mail e Senha).');
       return;
     }
 
-    // 2. Cria uma animação de "Carregando" na tela
     const loading = await this.loadingCtrl.create({
       message: 'Criando sua conta...',
     });
     await loading.present();
 
     try {
-      // 3. Cria o usuário no Firebase Auth
       const credenciais = await createUserWithEmailAndPassword(
         auth, 
         this.usuario.email, 
         this.usuario.senha
       );
 
-      const userId = credenciais.user.uid; // ID único gerado pelo Firebase
+      const userId = credenciais.user.uid; 
 
-      // 4. Salva as informações adicionais no Firestore na coleção "usuarios"
-      // Usamos o UID do Auth como o ID do documento para ficarem interligados
+
       await setDoc(doc(db, "usuarios", userId), {
         nome: this.usuario.nome,
         email: this.usuario.email,
         cpf: this.usuario.cpf,
+        cep: this.usuario.cep,
         estado: this.usuario.estado,
         cidade: this.usuario.cidade,
-        role: "comum", // <-- DEFINA O NÍVEL PADRÃO AQUI (pode ser 'comum', 'voluntario', etc.)
+        role: "comum",
         criadoEm: new Date()
       });
 
-      // Fecha o "Carregando"
       await loading.dismiss();
 
-      // 5. Se deu tudo certo, navega para a Home
       this.router.navigateByUrl('/home');
 
     } catch (error: any) {
       await loading.dismiss();
       console.error('Erro ao cadastrar:', error);
       
-      // Tratamento de erros amigável para o usuário
       let mensagemErro = 'Não foi possível realizar o cadastro.';
       
       if (error.code === 'auth/email-already-in-use') {
@@ -104,7 +100,7 @@ usuario = {
     }
   }
 
-  // Função auxiliar para exibir mensagens de alerta do Ionic
+
   async exibirAlerta(titulo: string, mensagem: string) {
     const alert = await this.alertCtrl.create({
       header: titulo,
@@ -113,4 +109,28 @@ usuario = {
     });
     await alert.present();
   }
+
+    buscarCep() {
+      const cep = this.usuario.cep.replace(/\D/g, '');
+
+      this.http
+      .get(`https://viacep.com.br/ws/${cep}/json/`)
+      .subscribe((dados: any) => {
+
+        this.usuario.cidade = dados.localidade;
+        this.usuario.estado = dados.uf;
+
+        if (dados.erro) {
+          alert('CEP não encontrado');
+          return;
+        }
+    })
+  }
+
+}
+
+export interface Endereco {
+  cep: string;
+  estado: string;
+  cidade: string;
 }

@@ -1,0 +1,238 @@
+<ion-header [translucent]="true">
+    <app-back-bttn id="back-bttn"></app-back-bttn>
+    <ion-title *ngIf="step > 0"></ion-title>
+</ion-header>
+
+<ion-content [fullscreen]="true" [scrollY]="false">
+
+  <div class="top-bar" *ngIf="step > 1">
+    <div class="steps-label">Etapa {{ step }} de {{ totalSteps }}</div>
+    <div class="progress-wrapper">
+      <div class="progress" [style.width.%]="(step / totalSteps) * 100"></div>
+    </div>
+  </div>
+
+  <div class="step-body">
+    <div *ngIf="step === 1" class="step-container step-zero">
+      <h1>Vamos Começar</h1>
+      <div class="welcome-card">
+        <img src="assets/img/formulario-adote1.png" class="hero-image" alt="adote"/>
+        <p>Para dar início ao processo de adoção, será necessário passar por duas avaliações: uma on-line e outra presencial, por isso é importante se atentar à localização da instituição parceira. Se tudo estiver de acordo, sinta-se livre para dar início ao processo.</p>
+      </div>
+    </div>
+
+    <div *ngIf="step === 2" class="step-container">
+      <h1>Experiência</h1>
+      <div class="question-section">
+        <p class="question-text">No momento, você possui algum animal de estimação em casa?</p>
+        <ion-radio-group [(ngModel)]="form.experiencia" class="radio-group">
+          <ion-item lines="none">
+            <ion-radio slot="start" value="sim"></ion-radio>
+            <ion-label>SIM</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-radio slot="start" value="nao"></ion-radio>
+            <ion-label>NÃO</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </div>
+      
+      <div class="question-section">
+        <p class="question-text">Se sim, quantos?</p>
+        <div class="button-group">
+          <button class="btn-option" [class.active]="form.tempoExperiencia === 'nenhum'" (click)="form.tempoExperiencia = 'nenhum'">Nenhum</button>
+          <button class="btn-option" [class.active]="form.tempoExperiencia === '1'" (click)="form.tempoExperiencia = '1'">1</button>
+          <button class="btn-option" [class.active]="form.tempoExperiencia === '2'" (click)="form.tempoExperiencia = '2'">2</button>
+          <button class="btn-option" [class.active]="form.tempoExperiencia === '3'" (click)="form.tempoExperiencia = '3'">3</button>
+          <button class="btn-option" [class.active]="form.tempoExperiencia === '>3'" (click)="form.tempoExperiencia = '>3'">+3</button>
+        </div>
+      </div>
+
+      <div class="question-section">
+        <p class="question-text">Você acha que é um adotariam com facilidade o chegada de um novo animal em casa?</p>
+        <ion-radio-group [(ngModel)]="form.adotouAntes" class="radio-group">
+          <ion-item lines="none">
+            <ion-radio slot="start" value="sim"></ion-radio>
+            <ion-label>SIM</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-radio slot="start" value="nao"></ion-radio>
+            <ion-label>NÃO</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </div>
+    </div>
+
+    <div *ngIf="step === 3" class="step-container">
+      <h1>Rotina</h1>
+      
+      <div class="question-section">
+        <p class="question-text">Quantas horas você tem disponível no seu dia?</p>
+        <div class="button-group">
+          <button class="btn-option" [class.active]="form.rotinaHoras === 'menos1h'" (click)="form.rotinaHoras = 'menos1h'">Menos de uma hora</button>
+          <button class="btn-option" [class.active]="form.rotinaHoras === '1h-2h'" (click)="form.rotinaHoras = '1h-2h'">1h - 2h</button>
+          <button class="btn-option" [class.active]="form.rotinaHoras === '2h-3h'" (click)="form.rotinaHoras = '2h-3h'">2h - 3h</button>
+          <button class="btn-option" [class.active]="form.rotinaHoras === '+3h'" (click)="form.rotinaHoras = '+3h'">+3h</button>
+        </div>
+      </div>
+
+      <div class="question-section">
+        <p class="question-text">Você trabalha fora ou em casa?</p>
+        <ion-radio-group [(ngModel)]="form.rotinaFora" class="radio-group">
+          <ion-item lines="none">
+            <ion-radio slot="start" value="fora"></ion-radio>
+            <ion-label>Fora</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-radio slot="start" value="casa"></ion-radio>
+            <ion-label>Em casa</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </div>
+
+      <div class="question-section">
+        <p class="question-text">Existe algum que a pessoa cuidou de pet em com de viagem?</p>
+        <ion-radio-group [(ngModel)]="form.rotinaDescricao" class="radio-group">
+          <ion-item lines="none">
+            <ion-radio slot="start" value="sim"></ion-radio>
+            <ion-label>SIM</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-radio slot="start" value="nao"></ion-radio>
+            <ion-label>NÃO</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </div>
+    </div>
+
+    <div *ngIf="step === 4" class="step-container">
+      <h1>Moradia</h1>
+      
+      <div class="question-section">
+        <p class="question-text">Você mora em casa ou apartamento?</p>
+        <div class="button-group">
+          <button class="btn-option" [class.active]="form.moradiaTipo === 'casa'" (click)="form.moradiaTipo = 'casa'">Casa</button>
+          <button class="btn-option" [class.active]="form.moradiaTipo === 'apartamento'" (click)="form.moradiaTipo = 'apartamento'">Apartamento</button>
+          <button class="btn-option" [class.active]="form.moradiaTipo === 'outro'" (click)="form.moradiaTipo = 'outro'">Outro</button>
+        </div>
+      </div>
+
+      <div class="question-section">
+        <p class="question-text">O local permite animais?</p>
+        <ion-radio-group [(ngModel)]="form.possuiQuintal" class="radio-group">
+          <ion-item lines="none">
+            <ion-radio slot="start" value="sim"></ion-radio>
+            <ion-label>SIM</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-radio slot="start" value="nao"></ion-radio>
+            <ion-label>NÃO</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </div>
+
+      <div class="question-section">
+        <p class="question-text">Há risco de fuga? (portão aberto, janelas sem tela, etc.)</p>
+        <ion-radio-group [(ngModel)]="form.pessoasMoram" class="radio-group">
+          <ion-item lines="none">
+            <ion-radio slot="start" value="sim"></ion-radio>
+            <ion-label>SIM</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-radio slot="start" value="nao"></ion-radio>
+            <ion-label>NÃO</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </div>
+
+      <div class="question-section">
+        <p class="question-text">O pet terá acesso à rua/ sozinho?</p>
+        <ion-radio-group [(ngModel)]="form.cuidadosEspeciais" class="radio-group">
+          <ion-item lines="none">
+            <ion-radio slot="start" value="sim"></ion-radio>
+            <ion-label>SIM</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-radio slot="start" value="nao"></ion-radio>
+            <ion-label>NÃO</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </div>
+    </div>
+
+    <div *ngIf="step === 5" class="step-container">
+      <h1>Intenção</h1>
+      
+      <div class="question-section">
+        <p class="question-text">Por que você quer adotar um animal? <span class="required">*obrigatório</span></p>
+        <ion-textarea class="textarea-input" [(ngModel)]="form.motivoAdocao" placeholder="Conte um pouco sobre sua intenção"></ion-textarea>
+      </div>
+
+      <div class="question-section">
+        <p class="question-text">O que será feito se o animal apresentar problemas de comportamento?</p>
+        <ion-textarea class="textarea-input" [(ngModel)]="form.animalHistorico" placeholder="Descreva suas estratégias"></ion-textarea>
+      </div>
+
+      <div class="question-section">
+        <p class="question-text">Tudo no caso concordam com a doação?</p>
+        <ion-radio-group [(ngModel)]="form.pretendeCastrar" class="radio-group">
+          <ion-item lines="none">
+            <ion-radio slot="start" value="sim"></ion-radio>
+            <ion-label>SIM</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-radio slot="start" value="nao"></ion-radio>
+            <ion-label>NÃO</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-radio slot="start" value="maioria"></ion-radio>
+            <ion-label>A maioria concorda</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </div>
+
+      <div class="question-section">
+        <p class="question-text">Está ciente dos custos mensais aproximados? (ração, possíveis emergências, etc.)</p>
+        <ion-radio-group [(ngModel)]="form.custosMensaisCientes" class="radio-group">
+          <ion-item lines="none">
+            <ion-radio slot="start" value="sim"></ion-radio>
+            <ion-label>SIM</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-radio slot="start" value="nao"></ion-radio>
+            <ion-label>NÃO</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </div>
+    </div>
+
+    <div *ngIf="step === 6" class="step-container">
+      <h1>Compromisso</h1>
+      <p class="subheading">Eu me comprometo a...</p>
+      <div class="checkbox-group">
+        <ion-item lines="none" class="checkbox-item">
+          <ion-checkbox slot="start" [(ngModel)]="form.compromisso1"></ion-checkbox>
+          <ion-label>Não abandonar o animal</ion-label>
+        </ion-item>
+        <ion-item lines="none" class="checkbox-item">
+          <ion-checkbox slot="start" [(ngModel)]="form.compromisso2"></ion-checkbox>
+          <ion-label>Devolvê-lo à instituição caso não possa mais cuidar</ion-label>
+        </ion-item>
+      </div>
+    </div>
+
+    <div *ngIf="step === 7" class="step-container">
+      <h1>Tudo pronto!</h1>
+      <img src="assets/img/formulario-adote2.png" class="hero-image" alt="img"/>
+      <p>Seu formulário de adoção foi concluído com sucesso. Agora é só enviar a solicitação e aguardar o retorno.</p>
+      <ion-button expand="block" color="primary" (click)="resetForm()">Ver minhas solicitações</ion-button>
+    </div>
+  </div>
+
+  <div *ngIf="step !== totalSteps" class="bottom-actions">
+    <ion-button class="continue-btn" expand="block" (click)="nextStep()">
+      {{ step === 6 ? 'Enviar solicitação' : 'Continuar' }}
+    </ion-button>
+    <ion-button fill="outline" color="medium" (click)="cancel()">Cancelar</ion-button>
+  </div>
+</ion-content>

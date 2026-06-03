@@ -1,0 +1,36 @@
+<ion-content>
+
+  <app-default-header header="Alterar Senha"></app-default-header>
+  <app-back-bttn></app-back-bttn>
+
+  <div class="container">
+
+    <ion-list>
+
+      <ion-item lines="none">
+
+      <ion-input
+      type="password"
+      label="Nova Senha"
+      [(ngModel)]="novaSenha"
+      required>
+      </ion-input>
+
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-input
+        type="password"
+        label="Confirme a Senha"
+        [(ngModel)]="confirmaSenha"
+        required>
+        </ion-input>
+      </ion-item>
+      
+      <app-secondary-button texto="Alterar Senha" (click)="alterarSenha()"></app-secondary-button>
+
+    </ion-list>
+
+  </div>
+
+</ion-content>

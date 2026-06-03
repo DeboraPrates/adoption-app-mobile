@@ -54,6 +54,20 @@
           inputmode="numeric"
           name="cpf"
           [(ngModel)]="usuario.cpf"
+          maxlength="11"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-input
+          class="campo"
+          name="cep"
+          placeholder="CEP"
+          inputmode="numeric"
+          [(ngModel)]="usuario.cep"
+          (ionBlur)="buscarCep()"
+          maxlength="8"
           required
         ></ion-input>
       </ion-item>
@@ -79,6 +93,7 @@
           ></ion-input>   
         </ion-item>
       </div> 
+      <small routerLink="/cadastro-instituicao">Cadastrar como Instituição</small>
 
       <div class="buttons">
         

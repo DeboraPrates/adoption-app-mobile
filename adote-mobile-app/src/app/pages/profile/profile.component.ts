@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 
 import { IonContent, IonItem, IonList, IonCard } from '@ionic/angular/standalone';
 
@@ -12,7 +12,7 @@ import { db, auth } from '../../firebase';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [IonContent, IonItem, IonList, IonCard, CommonModule],
+  imports: [IonContent, IonItem, IonList, IonCard],
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })

@@ -10,13 +10,10 @@
     </div>
     <div class="inst-info">
       <span class="inst-label">Instituição</span>
-      <span class="inst-name">{{ nomeInstituicao }}</span>
+      <span class="inst-name">{{ usuarioDados?.nome }}</span>
     </div>
-    <button class="notif-btn" routerLink="/notificacoes">
-      <ion-icon name="notifications-outline"></ion-icon>
-      <span class="notif-badge" *ngIf="notificacoesPendentes > 0">
-        {{ notificacoesPendentes }}
-      </span>
+    <button class="notif-btn" routerLink="/settings" title="configurações">
+      <ion-icon name="settings"></ion-icon>
     </button>
   </div>
 
@@ -46,7 +43,7 @@
       <span class="stat-label">Registros pendentes</span>
       <ion-icon name="document-text" class="stat-icon"></ion-icon>
     </div>
-    
+
   </div>
 
   <!-- ações rápidas -->

@@ -1,21 +1,30 @@
 <ion-content [fullscreen]="true">
 
+<!--
   <div class="settings-header">
     <app-back-bttn></app-back-bttn>
     <h2>Configurações</h2>
   </div>
-
+-->
+  <app-default-header header="Configurações">
+  </app-default-header>
+  <app-back-bttn></app-back-bttn>
+  
   <div id="user-info">
-    <img src="assets/img/profile.jpg" alt="" srcset="">
+    <img src="assets/img/profile-photo.jpg" alt="" srcset="">
 
-    <div id="user-cred" *ngIf="usuarioDados">
-      <p id="user-nome">{{ usuarioDados?.nome }}</p>
-      <p id="user-email">{{ usuarioDados?.email }} </p>
-    </div>
+    @if (usuarioDados) {
+      <div id="user-cred">
+        <p id="user-nome">{{ usuarioDados?.nome }}</p>
+        <p id="user-email">{{ usuarioDados?.email }} </p>
+      </div>
+    }
 
-        <div id="user-cred" *ngIf="!usuarioDados">
-      <p id="user-email">Carregando dados...</p>
-    </div>
+    @if (!usuarioDados) {
+      <div id="user-cred">
+        <p id="user-email">Carregando dados...</p>
+      </div>
+    }
   </div>
 
   <div class="setting-block">
@@ -27,7 +36,7 @@
         Meu Perfil
       </ion-item>
 
-      <ion-item lines="none" button detail="true">
+      <ion-item lines="none" button detail="true" routerLink="/senha-e-seguranca">
         <ion-icon name="lock-closed"></ion-icon>
         Senha e Segurança
       </ion-item>
@@ -38,6 +47,8 @@
       </ion-item>
     </ion-list>
 
+  
+
     <div class="header-block">Preferências</div>
 
     <ion-list>
@@ -45,26 +56,35 @@
         <ion-icon name="information-circle"></ion-icon>
         Sobre Nós
       </ion-item>
-      
+
       <ion-item lines="none" button detail="true">
         <ion-icon name="cloudy-night"></ion-icon>
         Tema
       </ion-item>
-      
-      <ion-item lines="none" button detail="true">
-        <ion-icon name="paw"></ion-icon>
-        Minhas Candidaturas
-      </ion-item>
-    </ion-list>
 
-        <div class="header-block">Mais</div>
+      @if (usuarioDados.role === 'comum') {
+        <ion-item lines="none" button detail="true">
+          <ion-icon name="paw"></ion-icon>
+          Minhas Candidaturas
+        </ion-item>    
 
-      <ion-list>
-        <ion-item lines="none" button detail="true" id="logout" (click)="deslogar()">
+      } @else if (usuarioDados.role === 'instituicao') {
+        <ion-item lines="none" button detail="true">
+          <ion-icon name="paw"></ion-icon>
+          Animais Cadastrados
+        </ion-item>          
+      } 
+
+      </ion-list>  
+
+    <div class="header-block">Mais</div>
+
+    <ion-list>
+      <ion-item lines="none" button detail="true" id="logout" (click)="deslogar()">
         <ion-icon name="log-out" id="logout-icon"></ion-icon>
         Fazer Logout
-        </ion-item>
-      </ion-list>
+      </ion-item>
+    </ion-list>
 
   </div>
 

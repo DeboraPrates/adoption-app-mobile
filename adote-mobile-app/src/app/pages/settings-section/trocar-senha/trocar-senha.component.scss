@@ -1,0 +1,29 @@
+ion-content {
+    --background: #F0F0F0;
+}
+
+ion-input {
+    --background: #fff;
+    color: #646464;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-inline: 1rem;
+}
+
+ion-list {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    background: transparent;
+    width: 98%;
+}
+
+ion-item {
+    display: flex;
+    border-radius: 22px;
+    height: 3.8rem;
+}

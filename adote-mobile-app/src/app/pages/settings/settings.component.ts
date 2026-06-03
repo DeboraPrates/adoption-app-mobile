@@ -1,11 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { BackBttnComponent } from 'src/app/components/back-bttn/back-bttn.component';
 
-// Todos os componentes e controllers do Ionic importados estritamente do standalone
+import { BackBttnComponent } from 'src/app/components/back-bttn/back-bttn.component';
+import { DefaultHeaderComponent } from 'src/app/components/default-header/default-header.component';
+
 import {
-  IonContent, IonList, IonItem, IonIcon, LoadingController
+  IonContent, 
+  IonList, 
+  IonItem, 
+  IonIcon, 
+  LoadingController
 } from "@ionic/angular/standalone";
 
 import { signOut, onAuthStateChanged, Unsubscribe } from 'firebase/auth';
@@ -15,7 +19,7 @@ import { db, auth } from '../../firebase';
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [BackBttnComponent, IonContent, IonList, IonItem, IonIcon, RouterModule, CommonModule],
+  imports: [BackBttnComponent, DefaultHeaderComponent, IonContent, IonList, IonItem, IonIcon, RouterModule],
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
 })
@@ -50,7 +54,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // Armazena o listener na variável
     this.authSubscription = onAuthStateChanged(auth, async (user) => {
       if (user) {
         try {
@@ -61,7 +64,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
             const dados = docSnap.data();
             
             this.tipoUsuario = dados['role']; 
-            this.usuarioDados = dados; // CORRIGIDO: Agora o seu HTML vai receber os dados!
+            this.usuarioDados = dados; 
           } 
         } catch (error) {
           console.error("Erro ao buscar nível de acesso:", error);
@@ -72,15 +75,14 @@ export class SettingsComponent implements OnInit, OnDestroy {
         this.tipoUsuario = '';
         this.usuarioDados = null;
         this.carregando = false;
-        this.router.navigateByUrl('/login'); // Se não está logado, segurança extra: joga pro login
+        this.router.navigateByUrl('/login'); 
       }
     });
   }
 
-  // Executado automaticamente quando o usuário sai desta tela
   ngOnDestroy() {
     if (this.authSubscription) {
-      this.authSubscription(); // CORRIGIDO: Desliga o monitor do Firebase, poupando memória e internet
+      this.authSubscription(); 
       console.log('Listener do Firebase desativado para evitar vazamento de memória.');
     }
   }
